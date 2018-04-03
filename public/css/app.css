@@ -10257,13 +10257,6 @@ nav {
   background: #495057 linear-gradient(180deg, #495057, #343a40) repeat-x;
 }
 
-#nav-bar {
-  display: block;
-  position: fixed;
-  width: 100%;
-  opacity: 0;
-}
-
 #head-photo {
   max-height: 95vh;
   width: 100%;

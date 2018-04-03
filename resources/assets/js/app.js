@@ -7,6 +7,11 @@
 
 require('./bootstrap');
 
+import Vue from 'vue';
+import Vuex from 'vuex';
+
+import { store } from './store.js';
+
 window.Vue = require('vue');
 
 /**
@@ -15,8 +20,11 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
+
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    store
 });

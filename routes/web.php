@@ -13,18 +13,14 @@
 
 // Route::get('/', 'MapController@index');
 
-Route::get('/', function(){
-  return view('home');
-});
+Route::get('/', 'StaticController@home')->name('home');
+Route::get('geography', 'StaticController@geography')->name('geography');
+Route::get('history', 'StaticController@history')->name('history');
+Route::get('language', 'StaticController@language')->name('language');
+Route::get('money', 'StaticController@money')->name('money');
+Route::get('safety', 'StaticController@safety')->name('safety');
+Route::get('travel-considerations', 'StaticController@TravelConsiderations')->name('travelConsiderations');
+Route::get('weather', 'StaticController@weather')->name('weather');
+Route::get('events', 'StaticController@events')->name('events');
 
-Route::get('form', function(){
-  return view('form');
-});
-
-Route::get('resource', function(){
-  return view('resource');
-});
-
-// Route::post('/updatejson', 'MapController@filterjson');
-
-// Route::get('/dd', 'DDController@index');
+Route::get('contact', 'ContactController@index')->name('contact');

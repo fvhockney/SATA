@@ -20,6 +20,8 @@
     },
     "dependencies": {
         "bootstrap": "^4.0.0-beta.3",
-        "popper.js": "^1.12.9"
+        "popper.js": "^1.12.9",
+        "vuejs-range-datepickers": "^2.0.0",
+        "vuex": "^3.0.1"
     }
 }

@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <input class="form-control" type="text" :value="search" @input='updateSearch' placeholder="Search">
   </div>
 </template>

@@ -69,9 +69,9 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #f8f9fa;
+  color: #343a40;
   text-align: left;
-  background-color: #343a40;
+  background-color: #f8f9fa;
 }
 
 [tabindex="-1"]:focus {
@@ -530,7 +530,7 @@ mark,
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #343a40;
+  background-color: #f8f9fa;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
@@ -1906,7 +1906,7 @@ pre code {
 }
 
 .table .table {
-  background-color: #343a40;
+  background-color: #f8f9fa;
 }
 
 .table-sm th,
@@ -2072,7 +2072,7 @@ pre code {
 }
 
 .table .thead-dark th {
-  color: #343a40;
+  color: #f8f9fa;
   background-color: #212529;
   border-color: #32383e;
 }
@@ -2084,7 +2084,7 @@ pre code {
 }
 
 .table-dark {
-  color: #343a40;
+  color: #f8f9fa;
   background-color: #212529;
 }
 
@@ -2481,14 +2481,14 @@ select.form-control-lg:not([size]):not([multiple]),
 
 .was-validated .custom-control-input:valid:checked ~ .custom-control-label::before,
 .custom-control-input.is-valid:checked ~ .custom-control-label::before {
-  background: #34ce57 -webkit-gradient(linear, left top, left bottom, from(#34b854), to(#34ce57)) repeat-x;
-  background: #34ce57 linear-gradient(180deg, #34b854, #34ce57) repeat-x;
+  background: #34ce57 -webkit-gradient(linear, left top, left bottom, from(#51d56f), to(#34ce57)) repeat-x;
+  background: #34ce57 linear-gradient(180deg, #51d56f, #34ce57) repeat-x;
 }
 
 .was-validated .custom-control-input:valid:focus ~ .custom-control-label::before,
 .custom-control-input.is-valid:focus ~ .custom-control-label::before {
-  -webkit-box-shadow: 0 0 0 1px #343a40, 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
-          box-shadow: 0 0 0 1px #343a40, 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+  -webkit-box-shadow: 0 0 0 1px #f8f9fa, 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+          box-shadow: 0 0 0 1px #f8f9fa, 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
 
 .was-validated .custom-file-input:valid ~ .custom-file-label,
@@ -2592,14 +2592,14 @@ select.form-control-lg:not([size]):not([multiple]),
 
 .was-validated .custom-control-input:invalid:checked ~ .custom-control-label::before,
 .custom-control-input.is-invalid:checked ~ .custom-control-label::before {
-  background: #e35d5b -webkit-gradient(linear, left top, left bottom, from(#c95857), to(#e35d5b)) repeat-x;
-  background: #e35d5b linear-gradient(180deg, #c95857, #e35d5b) repeat-x;
+  background: #e35d5b -webkit-gradient(linear, left top, left bottom, from(#e67473), to(#e35d5b)) repeat-x;
+  background: #e35d5b linear-gradient(180deg, #e67473, #e35d5b) repeat-x;
 }
 
 .was-validated .custom-control-input:invalid:focus ~ .custom-control-label::before,
 .custom-control-input.is-invalid:focus ~ .custom-control-label::before {
-  -webkit-box-shadow: 0 0 0 1px #343a40, 0 0 0 0.2rem rgba(220, 50, 47, 0.25);
-          box-shadow: 0 0 0 1px #343a40, 0 0 0 0.2rem rgba(220, 50, 47, 0.25);
+  -webkit-box-shadow: 0 0 0 1px #f8f9fa, 0 0 0 0.2rem rgba(220, 50, 47, 0.25);
+          box-shadow: 0 0 0 1px #f8f9fa, 0 0 0 0.2rem rgba(220, 50, 47, 0.25);
 }
 
 .was-validated .custom-file-input:invalid ~ .custom-file-label,
@@ -2789,8 +2789,8 @@ fieldset[disabled] a.btn {
 
 .btn-primary {
   color: #fff;
-  background: #268bd2 -webkit-gradient(linear, left top, left bottom, from(#287fbc), to(#268bd2)) repeat-x;
-  background: #268bd2 linear-gradient(180deg, #287fbc, #268bd2) repeat-x;
+  background: #268bd2 -webkit-gradient(linear, left top, left bottom, from(#469cd8), to(#268bd2)) repeat-x;
+  background: #268bd2 linear-gradient(180deg, #469cd8, #268bd2) repeat-x;
   border-color: #268bd2;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -2798,8 +2798,8 @@ fieldset[disabled] a.btn {
 
 .btn-primary:hover {
   color: #fff;
-  background: #2076b2 -webkit-gradient(linear, left top, left bottom, from(#236da1), to(#2076b2)) repeat-x;
-  background: #2076b2 linear-gradient(180deg, #236da1, #2076b2) repeat-x;
+  background: #2076b2 -webkit-gradient(linear, left top, left bottom, from(#4189bc), to(#2076b2)) repeat-x;
+  background: #2076b2 linear-gradient(180deg, #4189bc, #2076b2) repeat-x;
   border-color: #1e6ea7;
 }
 
@@ -2833,8 +2833,8 @@ fieldset[disabled] a.btn {
 
 .btn-secondary {
   color: #fff;
-  background: #868e96 -webkit-gradient(linear, left top, left bottom, from(#7a8189), to(#868e96)) repeat-x;
-  background: #868e96 linear-gradient(180deg, #7a8189, #868e96) repeat-x;
+  background: #868e96 -webkit-gradient(linear, left top, left bottom, from(#979ea5), to(#868e96)) repeat-x;
+  background: #868e96 linear-gradient(180deg, #979ea5, #868e96) repeat-x;
   border-color: #868e96;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -2842,8 +2842,8 @@ fieldset[disabled] a.btn {
 
 .btn-secondary:hover {
   color: #fff;
-  background: #727b84 -webkit-gradient(linear, left top, left bottom, from(#697179), to(#727b84)) repeat-x;
-  background: #727b84 linear-gradient(180deg, #697179, #727b84) repeat-x;
+  background: #727b84 -webkit-gradient(linear, left top, left bottom, from(#868e95), to(#727b84)) repeat-x;
+  background: #727b84 linear-gradient(180deg, #868e95, #727b84) repeat-x;
   border-color: #6c757d;
 }
 
@@ -2877,8 +2877,8 @@ fieldset[disabled] a.btn {
 
 .btn-success {
   color: #fff;
-  background: #28a745 -webkit-gradient(linear, left top, left bottom, from(#2a9744), to(#28a745)) repeat-x;
-  background: #28a745 linear-gradient(180deg, #2a9744, #28a745) repeat-x;
+  background: #28a745 -webkit-gradient(linear, left top, left bottom, from(#47b360), to(#28a745)) repeat-x;
+  background: #28a745 linear-gradient(180deg, #47b360, #28a745) repeat-x;
   border-color: #28a745;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -2886,8 +2886,8 @@ fieldset[disabled] a.btn {
 
 .btn-success:hover {
   color: #fff;
-  background: #218838 -webkit-gradient(linear, left top, left bottom, from(#247c39), to(#218838)) repeat-x;
-  background: #218838 linear-gradient(180deg, #247c39, #218838) repeat-x;
+  background: #218838 -webkit-gradient(linear, left top, left bottom, from(#419955), to(#218838)) repeat-x;
+  background: #218838 linear-gradient(180deg, #419955, #218838) repeat-x;
   border-color: #1e7e34;
 }
 
@@ -2921,8 +2921,8 @@ fieldset[disabled] a.btn {
 
 .btn-info {
   color: #fff;
-  background: #2aa198 -webkit-gradient(linear, left top, left bottom, from(#2c928b), to(#2aa198)) repeat-x;
-  background: #2aa198 linear-gradient(180deg, #2c928b, #2aa198) repeat-x;
+  background: #2aa198 -webkit-gradient(linear, left top, left bottom, from(#49aea7), to(#2aa198)) repeat-x;
+  background: #2aa198 linear-gradient(180deg, #49aea7, #2aa198) repeat-x;
   border-color: #2aa198;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -2930,8 +2930,8 @@ fieldset[disabled] a.btn {
 
 .btn-info:hover {
   color: #fff;
-  background: #22837b -webkit-gradient(linear, left top, left bottom, from(#257872), to(#22837b)) repeat-x;
-  background: #22837b linear-gradient(180deg, #257872, #22837b) repeat-x;
+  background: #22837b -webkit-gradient(linear, left top, left bottom, from(#42948e), to(#22837b)) repeat-x;
+  background: #22837b linear-gradient(180deg, #42948e, #22837b) repeat-x;
   border-color: #1f7972;
 }
 
@@ -2965,8 +2965,8 @@ fieldset[disabled] a.btn {
 
 .btn-warning {
   color: #212529;
-  background: #ffc107 -webkit-gradient(linear, left top, left bottom, from(#e1ad10), to(#ffc107)) repeat-x;
-  background: #ffc107 linear-gradient(180deg, #e1ad10, #ffc107) repeat-x;
+  background: #ffc107 -webkit-gradient(linear, left top, left bottom, from(#fec92b), to(#ffc107)) repeat-x;
+  background: #ffc107 linear-gradient(180deg, #fec92b, #ffc107) repeat-x;
   border-color: #ffc107;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -2974,8 +2974,8 @@ fieldset[disabled] a.btn {
 
 .btn-warning:hover {
   color: #212529;
-  background: #e0a800 -webkit-gradient(linear, left top, left bottom, from(#c6970a), to(#e0a800)) repeat-x;
-  background: #e0a800 linear-gradient(180deg, #c6970a, #e0a800) repeat-x;
+  background: #e0a800 -webkit-gradient(linear, left top, left bottom, from(#e3b426), to(#e0a800)) repeat-x;
+  background: #e0a800 linear-gradient(180deg, #e3b426, #e0a800) repeat-x;
   border-color: #d39e00;
 }
 
@@ -3009,8 +3009,8 @@ fieldset[disabled] a.btn {
 
 .btn-danger {
   color: #fff;
-  background: #dc322f -webkit-gradient(linear, left top, left bottom, from(#c33332), to(#dc322f)) repeat-x;
-  background: #dc322f linear-gradient(180deg, #c33332, #dc322f) repeat-x;
+  background: #dc322f -webkit-gradient(linear, left top, left bottom, from(#e0504d), to(#dc322f)) repeat-x;
+  background: #dc322f linear-gradient(180deg, #e0504d, #dc322f) repeat-x;
   border-color: #dc322f;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -3018,8 +3018,8 @@ fieldset[disabled] a.btn {
 
 .btn-danger:hover {
   color: #fff;
-  background: #c42421 -webkit-gradient(linear, left top, left bottom, from(#ae2726), to(#c42421)) repeat-x;
-  background: #c42421 linear-gradient(180deg, #ae2726, #c42421) repeat-x;
+  background: #c42421 -webkit-gradient(linear, left top, left bottom, from(#cc4442), to(#c42421)) repeat-x;
+  background: #c42421 linear-gradient(180deg, #cc4442, #c42421) repeat-x;
   border-color: #b9221f;
 }
 
@@ -3053,8 +3053,8 @@ fieldset[disabled] a.btn {
 
 .btn-light {
   color: #212529;
-  background: #f8f9fa -webkit-gradient(linear, left top, left bottom, from(#dbdcde), to(#f8f9fa)) repeat-x;
-  background: #f8f9fa linear-gradient(180deg, #dbdcde, #f8f9fa) repeat-x;
+  background: #f8f9fa -webkit-gradient(linear, left top, left bottom, from(#f8f9fa), to(#f8f9fa)) repeat-x;
+  background: #f8f9fa linear-gradient(180deg, #f8f9fa, #f8f9fa) repeat-x;
   border-color: #f8f9fa;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -3062,8 +3062,8 @@ fieldset[disabled] a.btn {
 
 .btn-light:hover {
   color: #212529;
-  background: #e2e6ea -webkit-gradient(linear, left top, left bottom, from(#c8ccd1), to(#e2e6ea)) repeat-x;
-  background: #e2e6ea linear-gradient(180deg, #c8ccd1, #e2e6ea) repeat-x;
+  background: #e2e6ea -webkit-gradient(linear, left top, left bottom, from(#e5e9ec), to(#e2e6ea)) repeat-x;
+  background: #e2e6ea linear-gradient(180deg, #e5e9ec, #e2e6ea) repeat-x;
   border-color: #dae0e5;
 }
 
@@ -3097,8 +3097,8 @@ fieldset[disabled] a.btn {
 
 .btn-dark {
   color: #fff;
-  background: #343a40 -webkit-gradient(linear, left top, left bottom, from(#343a40), to(#343a40)) repeat-x;
-  background: #343a40 linear-gradient(180deg, #343a40, #343a40) repeat-x;
+  background: #343a40 -webkit-gradient(linear, left top, left bottom, from(#51575c), to(#343a40)) repeat-x;
+  background: #343a40 linear-gradient(180deg, #51575c, #343a40) repeat-x;
   border-color: #343a40;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -3106,8 +3106,8 @@ fieldset[disabled] a.btn {
 
 .btn-dark:hover {
   color: #fff;
-  background: #23272b -webkit-gradient(linear, left top, left bottom, from(#252a2e), to(#23272b)) repeat-x;
-  background: #23272b linear-gradient(180deg, #252a2e, #23272b) repeat-x;
+  background: #23272b -webkit-gradient(linear, left top, left bottom, from(#43464a), to(#23272b)) repeat-x;
+  background: #23272b linear-gradient(180deg, #43464a, #23272b) repeat-x;
   border-color: #1d2124;
 }
 
@@ -3543,7 +3543,7 @@ tbody.collapse.show {
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 1rem;
-  color: #f8f9fa;
+  color: #343a40;
   text-align: left;
   list-style: none;
   background-color: #fff;
@@ -3662,23 +3662,23 @@ tbody.collapse.show {
 .dropdown-item:focus {
   color: #16181b;
   text-decoration: none;
-  background: #f8f9fa -webkit-gradient(linear, left top, left bottom, from(#dbdcde), to(#f8f9fa)) repeat-x;
-  background: #f8f9fa linear-gradient(180deg, #dbdcde, #f8f9fa) repeat-x;
+  background: #f8f9fa -webkit-gradient(linear, left top, left bottom, from(#f8f9fa), to(#f8f9fa)) repeat-x;
+  background: #f8f9fa linear-gradient(180deg, #f8f9fa, #f8f9fa) repeat-x;
 }
 
 .dropdown-item:hover {
   color: #16181b;
   text-decoration: none;
-  background: #f8f9fa -webkit-gradient(linear, left top, left bottom, from(#dbdcde), to(#f8f9fa)) repeat-x;
-  background: #f8f9fa linear-gradient(180deg, #dbdcde, #f8f9fa) repeat-x;
+  background: #f8f9fa -webkit-gradient(linear, left top, left bottom, from(#f8f9fa), to(#f8f9fa)) repeat-x;
+  background: #f8f9fa linear-gradient(180deg, #f8f9fa, #f8f9fa) repeat-x;
 }
 
 .dropdown-item.active,
 .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background: #268bd2 -webkit-gradient(linear, left top, left bottom, from(#287fbc), to(#268bd2)) repeat-x;
-  background: #268bd2 linear-gradient(180deg, #287fbc, #268bd2) repeat-x;
+  background: #268bd2 -webkit-gradient(linear, left top, left bottom, from(#469cd8), to(#268bd2)) repeat-x;
+  background: #268bd2 linear-gradient(180deg, #469cd8, #268bd2) repeat-x;
 }
 
 .dropdown-item.disabled,
@@ -4022,15 +4022,15 @@ tbody.collapse.show {
 
 .custom-control-input:checked ~ .custom-control-label::before {
   color: #fff;
-  background: #268bd2 -webkit-gradient(linear, left top, left bottom, from(#287fbc), to(#268bd2)) repeat-x;
-  background: #268bd2 linear-gradient(180deg, #287fbc, #268bd2) repeat-x;
+  background: #268bd2 -webkit-gradient(linear, left top, left bottom, from(#469cd8), to(#268bd2)) repeat-x;
+  background: #268bd2 linear-gradient(180deg, #469cd8, #268bd2) repeat-x;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
 .custom-control-input:focus ~ .custom-control-label::before {
-  -webkit-box-shadow: 0 0 0 1px #343a40, 0 0 0 0.2rem rgba(38, 139, 210, 0.25);
-          box-shadow: 0 0 0 1px #343a40, 0 0 0 0.2rem rgba(38, 139, 210, 0.25);
+  -webkit-box-shadow: 0 0 0 1px #f8f9fa, 0 0 0 0.2rem rgba(38, 139, 210, 0.25);
+          box-shadow: 0 0 0 1px #f8f9fa, 0 0 0 0.2rem rgba(38, 139, 210, 0.25);
 }
 
 .custom-control-input:active ~ .custom-control-label::before {
@@ -4088,8 +4088,8 @@ tbody.collapse.show {
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
-  background: #268bd2 -webkit-gradient(linear, left top, left bottom, from(#287fbc), to(#268bd2)) repeat-x;
-  background: #268bd2 linear-gradient(180deg, #287fbc, #268bd2) repeat-x;
+  background: #268bd2 -webkit-gradient(linear, left top, left bottom, from(#469cd8), to(#268bd2)) repeat-x;
+  background: #268bd2 linear-gradient(180deg, #469cd8, #268bd2) repeat-x;
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
@@ -4097,8 +4097,8 @@ tbody.collapse.show {
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
-  background: #268bd2 -webkit-gradient(linear, left top, left bottom, from(#287fbc), to(#268bd2)) repeat-x;
-  background: #268bd2 linear-gradient(180deg, #287fbc, #268bd2) repeat-x;
+  background: #268bd2 -webkit-gradient(linear, left top, left bottom, from(#469cd8), to(#268bd2)) repeat-x;
+  background: #268bd2 linear-gradient(180deg, #469cd8, #268bd2) repeat-x;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -4112,8 +4112,8 @@ tbody.collapse.show {
 }
 
 .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
-  background: #268bd2 -webkit-gradient(linear, left top, left bottom, from(#287fbc), to(#268bd2)) repeat-x;
-  background: #268bd2 linear-gradient(180deg, #287fbc, #268bd2) repeat-x;
+  background: #268bd2 -webkit-gradient(linear, left top, left bottom, from(#469cd8), to(#268bd2)) repeat-x;
+  background: #268bd2 linear-gradient(180deg, #469cd8, #268bd2) repeat-x;
 }
 
 .custom-radio .custom-control-input:checked ~ .custom-control-label::after {
@@ -4239,8 +4239,8 @@ tbody.collapse.show {
   line-height: 1.5;
   color: #495057;
   content: "Browse";
-  background: #e9ecef -webkit-gradient(linear, left top, left bottom, from(#ced1d5), to(#e9ecef)) repeat-x;
-  background: #e9ecef linear-gradient(180deg, #ced1d5, #e9ecef) repeat-x;
+  background: #e9ecef -webkit-gradient(linear, left top, left bottom, from(#ebeef1), to(#e9ecef)) repeat-x;
+  background: #e9ecef linear-gradient(180deg, #ebeef1, #e9ecef) repeat-x;
   border-left: 1px solid #ced4da;
   border-radius: 0 0.25rem 0.25rem 0;
 }
@@ -4304,8 +4304,8 @@ tbody.collapse.show {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #343a40;
-  border-color: #dee2e6 #dee2e6 #343a40;
+  background-color: #f8f9fa;
+  border-color: #dee2e6 #dee2e6 #f8f9fa;
 }
 
 .nav-tabs .dropdown-menu {
@@ -5519,8 +5519,8 @@ tbody.collapse.show {
 
 .alert-primary {
   color: #14486d;
-  background: #d4e8f6 -webkit-gradient(linear, left top, left bottom, from(#bccedb), to(#d4e8f6)) repeat-x;
-  background: #d4e8f6 linear-gradient(180deg, #bccedb, #d4e8f6) repeat-x;
+  background: #d4e8f6 -webkit-gradient(linear, left top, left bottom, from(#d9ebf7), to(#d4e8f6)) repeat-x;
+  background: #d4e8f6 linear-gradient(180deg, #d9ebf7, #d4e8f6) repeat-x;
   border-color: #c2dff2;
 }
 
@@ -5534,8 +5534,8 @@ tbody.collapse.show {
 
 .alert-secondary {
   color: #464a4e;
-  background: #e7e8ea -webkit-gradient(linear, left top, left bottom, from(#ccced1), to(#e7e8ea)) repeat-x;
-  background: #e7e8ea linear-gradient(180deg, #ccced1, #e7e8ea) repeat-x;
+  background: #e7e8ea -webkit-gradient(linear, left top, left bottom, from(#eaebec), to(#e7e8ea)) repeat-x;
+  background: #e7e8ea linear-gradient(180deg, #eaebec, #e7e8ea) repeat-x;
   border-color: #dddfe2;
 }
 
@@ -5549,8 +5549,8 @@ tbody.collapse.show {
 
 .alert-success {
   color: #155724;
-  background: #d4edda -webkit-gradient(linear, left top, left bottom, from(#bcd2c3), to(#d4edda)) repeat-x;
-  background: #d4edda linear-gradient(180deg, #bcd2c3, #d4edda) repeat-x;
+  background: #d4edda -webkit-gradient(linear, left top, left bottom, from(#d9efdf), to(#d4edda)) repeat-x;
+  background: #d4edda linear-gradient(180deg, #d9efdf, #d4edda) repeat-x;
   border-color: #c3e6cb;
 }
 
@@ -5564,8 +5564,8 @@ tbody.collapse.show {
 
 .alert-info {
   color: #16544f;
-  background: #d4ecea -webkit-gradient(linear, left top, left bottom, from(#bcd1d1), to(#d4ecea)) repeat-x;
-  background: #d4ecea linear-gradient(180deg, #bcd1d1, #d4ecea) repeat-x;
+  background: #d4ecea -webkit-gradient(linear, left top, left bottom, from(#d9eeec), to(#d4ecea)) repeat-x;
+  background: #d4ecea linear-gradient(180deg, #d9eeec, #d4ecea) repeat-x;
   border-color: #c3e5e2;
 }
 
@@ -5579,8 +5579,8 @@ tbody.collapse.show {
 
 .alert-warning {
   color: #856404;
-  background: #fff3cd -webkit-gradient(linear, left top, left bottom, from(#e1d7b8), to(#fff3cd)) repeat-x;
-  background: #fff3cd linear-gradient(180deg, #e1d7b8, #fff3cd) repeat-x;
+  background: #fff3cd -webkit-gradient(linear, left top, left bottom, from(#fef4d4), to(#fff3cd)) repeat-x;
+  background: #fff3cd linear-gradient(180deg, #fef4d4, #fff3cd) repeat-x;
   border-color: #ffeeba;
 }
 
@@ -5594,8 +5594,8 @@ tbody.collapse.show {
 
 .alert-danger {
   color: #721a18;
-  background: #f8d6d5 -webkit-gradient(linear, left top, left bottom, from(#dbbfbf), to(#f8d6d5)) repeat-x;
-  background: #f8d6d5 linear-gradient(180deg, #dbbfbf, #f8d6d5) repeat-x;
+  background: #f8d6d5 -webkit-gradient(linear, left top, left bottom, from(#f8dbdb), to(#f8d6d5)) repeat-x;
+  background: #f8d6d5 linear-gradient(180deg, #f8dbdb, #f8d6d5) repeat-x;
   border-color: #f5c6c5;
 }
 
@@ -5609,8 +5609,8 @@ tbody.collapse.show {
 
 .alert-light {
   color: #818182;
-  background: #fefefe -webkit-gradient(linear, left top, left bottom, from(#e0e1e2), to(#fefefe)) repeat-x;
-  background: #fefefe linear-gradient(180deg, #e0e1e2, #fefefe) repeat-x;
+  background: #fefefe -webkit-gradient(linear, left top, left bottom, from(#fdfdfd), to(#fefefe)) repeat-x;
+  background: #fefefe linear-gradient(180deg, #fdfdfd, #fefefe) repeat-x;
   border-color: #fdfdfe;
 }
 
@@ -5624,8 +5624,8 @@ tbody.collapse.show {
 
 .alert-dark {
   color: #1b1e21;
-  background: #d6d8d9 -webkit-gradient(linear, left top, left bottom, from(#bec0c2), to(#d6d8d9)) repeat-x;
-  background: #d6d8d9 linear-gradient(180deg, #bec0c2, #d6d8d9) repeat-x;
+  background: #d6d8d9 -webkit-gradient(linear, left top, left bottom, from(#dbddde), to(#d6d8d9)) repeat-x;
+  background: #d6d8d9 linear-gradient(180deg, #dbddde, #d6d8d9) repeat-x;
   border-color: #c6c8ca;
 }
 
@@ -5744,7 +5744,7 @@ tbody.collapse.show {
 }
 
 .list-group-item-action:active {
-  color: #f8f9fa;
+  color: #343a40;
   background-color: #e9ecef;
 }
 
@@ -6572,7 +6572,7 @@ button.close {
 
 .popover-body {
   padding: 0.5rem 0.75rem;
-  color: #f8f9fa;
+  color: #343a40;
 }
 
 .carousel {
@@ -6925,43 +6925,43 @@ button.bg-dark:hover {
 }
 
 .bg-gradient-primary {
-  background: #268bd2 -webkit-gradient(linear, left top, left bottom, from(#287fbc), to(#268bd2)) repeat-x !important;
-  background: #268bd2 linear-gradient(180deg, #287fbc, #268bd2) repeat-x !important;
+  background: #268bd2 -webkit-gradient(linear, left top, left bottom, from(#469cd8), to(#268bd2)) repeat-x !important;
+  background: #268bd2 linear-gradient(180deg, #469cd8, #268bd2) repeat-x !important;
 }
 
 .bg-gradient-secondary {
-  background: #868e96 -webkit-gradient(linear, left top, left bottom, from(#7a8189), to(#868e96)) repeat-x !important;
-  background: #868e96 linear-gradient(180deg, #7a8189, #868e96) repeat-x !important;
+  background: #868e96 -webkit-gradient(linear, left top, left bottom, from(#979ea5), to(#868e96)) repeat-x !important;
+  background: #868e96 linear-gradient(180deg, #979ea5, #868e96) repeat-x !important;
 }
 
 .bg-gradient-success {
-  background: #28a745 -webkit-gradient(linear, left top, left bottom, from(#2a9744), to(#28a745)) repeat-x !important;
-  background: #28a745 linear-gradient(180deg, #2a9744, #28a745) repeat-x !important;
+  background: #28a745 -webkit-gradient(linear, left top, left bottom, from(#47b360), to(#28a745)) repeat-x !important;
+  background: #28a745 linear-gradient(180deg, #47b360, #28a745) repeat-x !important;
 }
 
 .bg-gradient-info {
-  background: #2aa198 -webkit-gradient(linear, left top, left bottom, from(#2c928b), to(#2aa198)) repeat-x !important;
-  background: #2aa198 linear-gradient(180deg, #2c928b, #2aa198) repeat-x !important;
+  background: #2aa198 -webkit-gradient(linear, left top, left bottom, from(#49aea7), to(#2aa198)) repeat-x !important;
+  background: #2aa198 linear-gradient(180deg, #49aea7, #2aa198) repeat-x !important;
 }
 
 .bg-gradient-warning {
-  background: #ffc107 -webkit-gradient(linear, left top, left bottom, from(#e1ad10), to(#ffc107)) repeat-x !important;
-  background: #ffc107 linear-gradient(180deg, #e1ad10, #ffc107) repeat-x !important;
+  background: #ffc107 -webkit-gradient(linear, left top, left bottom, from(#fec92b), to(#ffc107)) repeat-x !important;
+  background: #ffc107 linear-gradient(180deg, #fec92b, #ffc107) repeat-x !important;
 }
 
 .bg-gradient-danger {
-  background: #dc322f -webkit-gradient(linear, left top, left bottom, from(#c33332), to(#dc322f)) repeat-x !important;
-  background: #dc322f linear-gradient(180deg, #c33332, #dc322f) repeat-x !important;
+  background: #dc322f -webkit-gradient(linear, left top, left bottom, from(#e0504d), to(#dc322f)) repeat-x !important;
+  background: #dc322f linear-gradient(180deg, #e0504d, #dc322f) repeat-x !important;
 }
 
 .bg-gradient-light {
-  background: #f8f9fa -webkit-gradient(linear, left top, left bottom, from(#dbdcde), to(#f8f9fa)) repeat-x !important;
-  background: #f8f9fa linear-gradient(180deg, #dbdcde, #f8f9fa) repeat-x !important;
+  background: #f8f9fa -webkit-gradient(linear, left top, left bottom, from(#f8f9fa), to(#f8f9fa)) repeat-x !important;
+  background: #f8f9fa linear-gradient(180deg, #f8f9fa, #f8f9fa) repeat-x !important;
 }
 
 .bg-gradient-dark {
-  background: #343a40 -webkit-gradient(linear, left top, left bottom, from(#343a40), to(#343a40)) repeat-x !important;
-  background: #343a40 linear-gradient(180deg, #343a40, #343a40) repeat-x !important;
+  background: #343a40 -webkit-gradient(linear, left top, left bottom, from(#51575c), to(#343a40)) repeat-x !important;
+  background: #343a40 linear-gradient(180deg, #51575c, #343a40) repeat-x !important;
 }
 
 .bg-white {
@@ -10253,8 +10253,6 @@ a.text-dark:hover {
 nav {
   -webkit-box-shadow: 0 5px 35px #292d32;
           box-shadow: 0 5px 35px #292d32;
-  background: #495057 -webkit-gradient(linear, left top, left bottom, from(#495057), to(#343a40)) repeat-x;
-  background: #495057 linear-gradient(180deg, #495057, #343a40) repeat-x;
 }
 
 #head-photo {

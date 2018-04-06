@@ -9,8 +9,10 @@ require('./bootstrap');
 
 import Vue from 'vue';
 import Vuex from 'vuex';
-
+import VueCharts from 'vue-chartjs';
+// import Chart from 'chartjs';
 import { store } from './store.js';
+
 
 window.Vue = require('vue');
 
@@ -22,9 +24,13 @@ window.Vue = require('vue');
 
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
+Vue.component('weather-temps', require('./components/Chart.vue'));
 
 const app = new Vue({
     el: '#app',
     store
 });
+
+const weather = new Vue({
+  el: '#weather'
+})

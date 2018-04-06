@@ -54,9 +54,21 @@ class StaticController extends Controller
 
   }
 
+  public function services(){
+
+    return view('services');
+
+  }
+
   public function events(){
 
     return view('events');
+
+  }
+
+  public function blog(){
+
+    return view('blog');
 
   }
 

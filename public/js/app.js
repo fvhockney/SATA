@@ -31875,7 +31875,7 @@ function applyToTag (styleElement, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(152);
-module.exports = __webpack_require__(247);
+module.exports = __webpack_require__(248);
 
 
 /***/ }),
@@ -31889,6 +31889,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_chartjs__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store_js__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__weatherStore_js__ = __webpack_require__(246);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -31901,7 +31902,7 @@ __webpack_require__(153);
 
 
 
-// import Chart from 'chartjs';
+
 
 
 window.Vue = __webpack_require__(12);
@@ -31921,7 +31922,8 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 });
 
 var weather = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
-  el: '#weather'
+  el: '#weather',
+  store: __WEBPACK_IMPORTED_MODULE_4__weatherStore_js__["a" /* weatherStore */]
 });
 
 /***/ }),
@@ -76287,7 +76289,7 @@ var normalizeComponent = __webpack_require__(9)
 /* script */
 var __vue_script__ = __webpack_require__(244)
 /* template */
-var __vue_template__ = __webpack_require__(246)
+var __vue_template__ = __webpack_require__(247)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -76396,12 +76398,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -76412,29 +76408,90 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   data: function data() {
     return {
-      dataCollection: { datasets: [] },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        legend: { display: false },
-        scales: {
-          yAxes: [{
-            ticks: {
-              max: 45
-            }
-          }],
-          xAxes: [{
-            type: 'category',
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-          }]
-        },
-        tooltips: {
-          intersect: false,
-          mode: 'index'
-        }
+      dataCollection: { datasets: [] }
+
+    };
+  },
+  mounted: function mounted() {
+    // this.update();
+
+  },
+
+
+  computed: {},
+
+  methods: {
+    updateChecked: function updateChecked(event) {
+      return this.$store.commit('updateChecked', event);
+    }
+  }
+});
+
+/***/ }),
+/* 245 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(21);
+
+var reactiveProp = __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["b" /* mixins */].reactiveProp;
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  extends: __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["a" /* Line */],
+  mixins: [reactiveProp],
+  props: ['chartData', 'options'],
+  data: function data() {
+    return {};
+  },
+  mounted: function mounted() {
+    this.renderChart(this.$store.getters.displayData, this.options);
+  },
+
+  computed: {}
+});
+
+/***/ }),
+/* 246 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return weatherStore; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(20);
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
+
+var weatherStore = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
+  debug: true,
+  state: {
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      legend: { display: false },
+      scales: {
+        yAxes: [{
+          ticks: {
+            max: 45,
+            min: 5
+          }
+        }],
+        xAxes: [{
+          type: 'category',
+          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+        }]
       },
+      tooltips: {
+        intersect: false,
+        mode: 'index'
+      }
+    },
+    cities: {
       telAviv: {
-        isChecked: false,
+        isChecked: true,
         data: [{
           label: 'Tel Aviv Low',
           borderColor: '#FC2525',
@@ -76552,172 +76609,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           data: [20, 22, 25, 29, 34, 37, 39, 38, 34, 32, 27, 21]
         }]
       }
-    };
-  },
-  mounted: function mounted() {
-    // this.update();
-    // this.dataCollection = {
-    //   datasets: [
-    // {
-    //   label: 'Tel Aviv Low',
-    //   borderColor: '#FC2525',
-    //   lineTension:0.15,
-    //   fill: '+1',
-    //   borderwidth: 1,
-    //   backgroundColor: 'rgba(255,0,0,0.5)',
-    //   data: [9,9,10,12,17,19,21,22,20,15,12,9]
-    // },
-    // {
-    //   label: 'Tel Aviv High',
-    //   borderColor: '#FC2525',
-    //   lineTension:0.15,
-    //   fill: false,
-    //   borderwidth: 1,
-    //   data: [18,19,20,22,25,28,30,30,31,28,25,19]
-    // },
-
-
-    // {
-    //   label: 'Jerusalem Low',
-    //   borderColor: '#05CBE1',
-    //   lineTension:0.15,
-    //   fill: '+1',
-    //   borderwidth: 1,
-    //   backgroundColor: 'rgba(5,203,255,0.5)',
-    //   data: [6,7,8,12,15,17,19,19,18,16,12,8]
-    // },
-    // {
-    //   label: 'Jerusalem High',
-    //   borderColor: '#05CBE1',
-    //   lineTension:0.15,
-    //   fill: false,
-    //   borderwidth: 1,
-    //   data: [11,15,16,21,25,27,29,29,28,26,19,14]
-    // },
-
-
-    // {
-    //   label: 'Haifa Low',
-    //   borderColor: '#FF00CE',
-    //   lineTension:0.15,
-    //   fill: '+1',
-    //   borderwidth: 1,
-    //   backgroundColor: 'rgba(255,0,206,0.5)',
-    //   data: [8,9,12,13,15,18,20,21,20,16,13,9]
-    // },
-    // {
-    //   label: 'Haifa High',
-    //   borderColor: '#FF00CE',
-    //   lineTension:0.15,
-    //   fill: false,
-    //   borderwidth: 1,
-    //   data: [17,18,21,26,25,28,30,30,30,27,23,18]
-    // },
-
-
-    // {
-    //   label: 'Tiberius Low',
-    //   borderColor: '#00FF42',
-    //   lineTension:0.15,
-    //   fill: '+1',
-    //   borderwidth: 1,
-    //   backgroundColor: 'rgba(0,255,66,0.5)',
-    //   data: [9,9,11,13,17,20,23,24,22,19,15,11]
-    // },
-    // {
-    //   label: 'Tiberius High',
-    //   lineTension:0.15,
-    //   borderColor: '#00FF42',
-    //   fill: false,
-    //   borderwidth: 1,
-    //   data: [18,20,22,27,32,35,37,37,35,32,26,20]
-    // },
-
-
-    // {
-    //   label: 'Eilat Low',
-    //   borderColor: '#FF7B00',
-    //   lineTension:0.15,
-    //   fill: '+1',
-    //   borderwidth: 1,
-    //   backgroundColor: 'rgba(255,123,0,0.5)',
-    //   data: [10,11,13,17,21,24,25,26,24,20,16,11]
-    // },
-    // {
-    //   label: 'Eilat High',
-    //   borderColor: '#FF7B00',
-    //   lineTension:0.15,
-    //   fill: false,
-    //   borderwidth: 1,
-    //   data: [21,23,26,31,35,37,40,40,36,33,28,23]
-    // },
-
-
-    // {
-    //   label: 'Dead Sea',
-    //   borderColor: '#AA00FF',
-    //   lineTension:0.15,
-    //   fill: '+1',
-    //   borderwidth: 1,
-    //   backgroundColor: 'rgba(170,0,255,0.5)',
-    //   data: [11,13,16,20,24,27,28,29,27,24,18,13]
-    // },
-    // {
-    //   label: 'Dead Sea',
-    //   borderColor: '#AA00FF',
-    //   lineTension:0.15,
-    //   fill: false,
-    //   borderwidth: 1,
-    //   data: [20,22,25,29,34,37,39,38,34,32,27,21]
-    // }
-    //
-    //   ]
-    // }
-  },
-
-
-  computed: {},
-
-  methods: {
-    update: function update(event) {
-      this.$data[event.target.value].isChecked = event.target.checked;
-      this.$data.dataCollection.datasets = this.$data[event.target.value].data;
-      console.log(this.$children[0]);
-      this.$root.$emit('dataChanged', this.$children[0]);
     }
-  }
-});
-
-/***/ }),
-/* 245 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(21);
-
-
-var reactiveProp = __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["b" /* mixins */].reactiveProp;
-
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-  extends: __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["a" /* Line */],
-  mixins: [__WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["b" /* mixins */].reactiveProp],
-  props: ['chartData', 'options'],
-  data: function data() {
-    return {};
   },
-  mounted: function mounted() {
-    this.$root.$on('dataChanged', function (chart) {
-      console.log('Yippee', chart);
-      chart.renderChart(chart.chartData, chart.options);
-    });
-    console.log(this);
-    this.renderChart(this.chartData, this.options);
-  }
+
+  getters: {
+    displayData: function displayData(state) {
+      var displayData = { datasets: [] };
+      for (var object in state.cities) {
+        if (state.cities[object].isChecked) {
+          displayData.datasets.push(state.cities[object].data[0]);
+          displayData.datasets.push(state.cities[object].data[1]);
+        }
+      }
+      return displayData;
+    }
+  },
+
+  mutations: {
+    updateChecked: function updateChecked(state, payload) {
+      var city = payload.target.value;
+      var status = payload.target.checked;
+      state.cities[city].isChecked = status;
+    }
+  },
+
+  actions: {}
+
 });
 
 /***/ }),
-/* 246 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -76738,7 +76659,7 @@ var render = function() {
         },
         on: {
           click: function($event) {
-            _vm.update($event)
+            _vm.updateChecked($event)
           }
         }
       }),
@@ -76748,7 +76669,9 @@ var render = function() {
         {
           staticClass: "btn",
           class: [
-            _vm.telAviv.isChecked ? "btn-primary" : "btn-outline-primary"
+            this.$store.state.cities.telAviv.isChecked
+              ? "btn-primary"
+              : "btn-outline-primary"
           ],
           attrs: { for: "telAviv" }
         },
@@ -76765,7 +76688,7 @@ var render = function() {
         },
         on: {
           click: function($event) {
-            _vm.update($event)
+            _vm.updateChecked($event)
           }
         }
       }),
@@ -76775,7 +76698,9 @@ var render = function() {
         {
           staticClass: "btn btn-secondary",
           class: [
-            _vm.jerusalem.isChecked ? "btn-secondary" : "btn-outline-secondary"
+            this.$store.state.cities.jerusalem.isChecked
+              ? "btn-secondary"
+              : "btn-outline-secondary"
           ],
           attrs: { for: "jerusalem" }
         },
@@ -76787,7 +76712,7 @@ var render = function() {
         attrs: { name: "haifa", id: "haifa", type: "checkbox", value: "haifa" },
         on: {
           click: function($event) {
-            _vm.update($event)
+            _vm.updateChecked($event)
           }
         }
       }),
@@ -76796,7 +76721,11 @@ var render = function() {
         "label",
         {
           staticClass: "btn btn-danger",
-          class: [_vm.haifa.isChecked ? "btn-danger" : "btn-outline-danger"],
+          class: [
+            this.$store.state.cities.haifa.isChecked
+              ? "btn-danger"
+              : "btn-outline-danger"
+          ],
           attrs: { for: "haifa" }
         },
         [_vm._v("Haifa")]
@@ -76812,7 +76741,7 @@ var render = function() {
         },
         on: {
           click: function($event) {
-            _vm.update($event)
+            _vm.updateChecked($event)
           }
         }
       }),
@@ -76822,7 +76751,9 @@ var render = function() {
         {
           staticClass: "btn btn-warning",
           class: [
-            _vm.tiberius.isChecked ? "btn-warning" : "btn-outline-warning"
+            this.$store.state.cities.tiberius.isChecked
+              ? "btn-warning"
+              : "btn-outline-warning"
           ],
           attrs: { for: "tiberius" }
         },
@@ -76834,7 +76765,7 @@ var render = function() {
         attrs: { name: "eilat", id: "eilat", type: "checkbox", value: "eilat" },
         on: {
           click: function($event) {
-            _vm.update($event)
+            _vm.updateChecked($event)
           }
         }
       }),
@@ -76843,7 +76774,11 @@ var render = function() {
         "label",
         {
           staticClass: "btn btn-info",
-          class: [_vm.eilat.isChecked ? "btn-info" : "btn-outline-info"],
+          class: [
+            this.$store.state.cities.eilat.isChecked
+              ? "btn-info"
+              : "btn-outline-info"
+          ],
           attrs: { for: "eilat" }
         },
         [_vm._v("Eilat")]
@@ -76859,7 +76794,7 @@ var render = function() {
         },
         on: {
           click: function($event) {
-            _vm.update($event)
+            _vm.updateChecked($event)
           }
         }
       }),
@@ -76868,14 +76803,21 @@ var render = function() {
         "label",
         {
           staticClass: "btn btn-dark",
-          class: [_vm.deadSea.isChecked ? "btn-dark" : "btn-outline-dark"],
+          class: [
+            this.$store.state.cities.deadSea.isChecked
+              ? "btn-dark"
+              : "btn-outline-dark"
+          ],
           attrs: { for: "deadSea" }
         },
         [_vm._v("Dead Sea")]
       ),
       _vm._v(" "),
       _c("weather-temps", {
-        attrs: { "chart-data": _vm.dataCollection, options: _vm.options }
+        attrs: {
+          "chart-data": this.$store.getters.displayData,
+          options: this.$store.state.options
+        }
       })
     ],
     1
@@ -76892,7 +76834,7 @@ if (false) {
 }
 
 /***/ }),
-/* 247 */
+/* 248 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

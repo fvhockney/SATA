@@ -10,8 +10,8 @@ require('./bootstrap');
 import Vue from 'vue';
 import Vuex from 'vuex';
 import VueCharts from 'vue-chartjs';
-// import Chart from 'chartjs';
 import { store } from './store.js';
+import {weatherStore} from './weatherStore.js';
 
 
 window.Vue = require('vue');
@@ -32,5 +32,6 @@ const app = new Vue({
 });
 
 const weather = new Vue({
-  el: '#weather'
+  el: '#weather',
+  store: weatherStore
 })

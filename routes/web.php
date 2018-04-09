@@ -26,3 +26,11 @@ Route::get('services', 'StaticController@services')->name('services');
 Route::get('blog', 'StaticController@blog')->name('blog');
 
 Route::get('contact', 'ContactController@index')->name('contact');
+
+
+Route::get('admin/login', 'SessionController@create')->name('login');
+Route::post('admin/login', 'SessionController@store');
+Route::post('admin/logout', 'SessionController@destroy');
+
+Route::get('admin/dashboard', 'AdminController@show')->name('adminDashboard');
+Route::resource('admin/blog-posts', 'AdminPostController');

@@ -3,8 +3,8 @@
   <div class="dropdown">
     <a href="#" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" role="button">Blog</a>
     <div class="dropdown-menu">
+      <a href="{{ action('AdminPostController@index') }}" class="dropdown-item">Manage Posts</a>
       <a href="{{ action('AdminPostController@create') }}" class="dropdown-item">Create Post</a>
-      <a href="#" class="dropdown-item">Edit Post</a>
     </div>
   </div>
   <a href="#" class="nav-item nav-link">Profile</a>

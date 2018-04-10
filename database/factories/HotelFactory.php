@@ -17,6 +17,6 @@ $factory->define(App\Hotel::class, function (Faker $faker) {
         'stars'=>$faker->numberBetween($min = 0, $max = 5),
         'price'=>$faker->numberBetween($min = 0, $max = 5),
         'lat'=>$faker->latitude($min = 31.75, $max =31.99 ),
-        'long'=>$faker->longitude($min = 34.75, $max =34.99 ),
+        'long'=>$faker->longitude($min = 34.75, $max =34.99 )
     ];
 });

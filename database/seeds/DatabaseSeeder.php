@@ -13,8 +13,11 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         $this->call([
-          HotelSeeder::class,
-          RestarauntSeeder::class,
+          // HotelSeeder::class,
+          // RestarauntSeeder::class,
+          TagsTableSeeder::class,
+          PostsTableSeeder::class,
+          UsersTableSeeder::class
         ]);
     }
 }

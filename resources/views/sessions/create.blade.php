@@ -16,16 +16,16 @@
   <p>
     If you have forgotten your password or email that were used to register you, please contact the site administrator.
   </p>
-  <form class="container" action="{{ action('SessionController@store') }}" method="POST">
+  <form class="container" action="login" method="POST">
     {{ csrf_field() }}
     <div class="form-row justify-content-center">
       <div class="form-group col-12 col-md-8 col-lg-6">
-        <input class="form-control" type="text" name="email" value="" placeholder="Email address" required>
+        <input class="form-control" type="text" name="email" id="email" placeholder="Email address" required>
       </div>
     </div>
     <div class="form-row justify-content-center">
       <div class="form-group col-12 col-md-8 col-lg-6">
-        <input class="form-control" type="password" name="password" value="" placeholder="Password" required>
+        <input class="form-control" type="password" name="password" id="password" placeholder="Password" required>
       </div>
     </div>
     <div class="form-row justify-content-center">

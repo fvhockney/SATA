@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
           // RestarauntSeeder::class,
           TagsTableSeeder::class,
           PostsTableSeeder::class,
-          UsersTableSeeder::class
+          RolesAndPermissionsSeeder::class,
+          UsersTableSeeder::class,
         ]);
     }
 }

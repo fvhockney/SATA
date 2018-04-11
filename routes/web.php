@@ -32,5 +32,8 @@ Route::get('admin/login', 'SessionController@create')->name('login');
 Route::post('admin/login', 'SessionController@store');
 Route::post('admin/logout', 'SessionController@destroy');
 
-Route::get('admin/dashboard', 'AdminController@show')->name('adminDashboard');
-Route::resource('admin/blog-posts', 'AdminPostController');
+
+Route::group(['middleware' => ['role:super-admin']], function () {
+  Route::get('admin/dashboard', 'AdminController@show')->name('adminDashboard');
+  Route::resource('admin/blog-posts', 'AdminPostController');
+});

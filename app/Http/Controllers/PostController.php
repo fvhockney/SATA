@@ -16,6 +16,7 @@ class PostController extends Controller
     ->filter(request(['month', 'year']))
     ->paginate(5);
 
+
     return view('posts.index', compact('posts'));
 
   }

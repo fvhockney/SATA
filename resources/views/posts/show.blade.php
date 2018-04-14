@@ -23,11 +23,11 @@
             @endif
             on <i>{{ $post->created_at->toFormattedDateString() }}</i>
           </h3>
-          @include('layouts.socialmedia')
+          {{-- @include('layouts.socialmedia') --}}
           @if ($post->tags)
             <div class="d-flex flex-wrap justify-items-start" id="tags">
               @foreach ($post->tags as $tag)
-                <a class="btn btn-outline-primary mr-1 mb-1" href="/posts/tags/{{ $tag->name }}">{{ $tag->name }}</a>
+                <a class="btn btn-outline-primary mr-1 mb-1" href="/blog/tags/{{ $tag->name }}">{{ $tag->name }}</a>
               @endforeach
             </div>
           @endif
@@ -49,13 +49,13 @@
         </article>
         <div class="fake-simple-paginate">
           @if (!is_null($previous))
-            <a class="btn btn-primary" href="{{ URL::to('posts/' . $previous->slug) }}">Previous</a>
+            <a class="btn btn-primary" href="{{ URL::to('blog/' . $previous->slug) }}">Previous</a>
           @else
             <a class="btn btn-primary disabled" tabindex="-1"href="">Previous</a>
           @endif
 
           @if (!is_null($next))
-            <a class="btn btn-primary" href="{{ URL::to('posts/' . $next->slug) }}">Next</a>
+            <a class="btn btn-primary" href="{{ URL::to('blog/' . $next->slug) }}">Next</a>
           @else
             <a class="btn btn-primary disabled" tabindex="-1" href="">Next</a>
           @endif

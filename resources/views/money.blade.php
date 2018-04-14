@@ -11,7 +11,7 @@
 @section('content')
   <h1>Money</h1>
   <p>
-    Since 1985, the currency of Israel is the New Israel Shekel (NIS) &#8362;. Denominations of banknotes include &#8362;20, &#8362;50, &#8362;100, &#8362;200. Coins are called, “Agora,” or “Arogot (plural).” Coins include &#8362;1/2, &#8362;1, &#8362;2, &#8362;5, &#8362;10, 1 Agora (1/100 NIS), 5 Agorot (1/20 NIS), and 10 Agorot (1/10 NIS).
+    Since 1985, the currency of Israel is the New Israel Shekel (NIS) &#8362;. Denominations of banknotes include &#8362;20, &#8362;50, &#8362;100, &#8362;200. Coins are called, “Agora,” or “Agorot (plural).” Coins include &#8362;1/2, &#8362;1, &#8362;2, &#8362;5, &#8362;10, 1 Agora (1/100 NIS), 5 Agorot (1/20 NIS), and 10 Agorot (1/10 NIS).
   </p>
 
   <h3>Exchanging Money</h3>

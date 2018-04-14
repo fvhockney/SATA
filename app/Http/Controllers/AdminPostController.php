@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-// use App\Http\Requests\BlogPost;
+use App\Http\Requests\BlogPost;
 
 use App\Post;
 use App\Tag;
-// use Purifier;
+use Purifier;
 
 
 class AdminPostController extends Controller
@@ -98,10 +98,10 @@ class AdminPostController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  // public function show($id)
-  // {
-  //   //
-  // }
+  public function show($id)
+  {
+    //
+  }
 
   /**
   * Show the form for editing the specified resource.

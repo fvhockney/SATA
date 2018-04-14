@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
           PostsTableSeeder::class,
           RolesAndPermissionsSeeder::class,
           UsersTableSeeder::class,
+          TodoTableSeeder::class,
         ]);
     }
 }

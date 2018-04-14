@@ -10,6 +10,7 @@ require('./bootstrap');
 import Vue from 'vue';
 import Vuex from 'vuex';
 import VueCharts from 'vue-chartjs';
+import axios from 'axios';
 import { store } from './store.js';
 import {weatherStore} from './weatherStore.js';
 
@@ -25,6 +26,12 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('weather-temps', require('./components/Chart.vue'));
+Vue.component('filter-todo', require('./components/filterTodo.vue'));
+Vue.component('add-todo', require('./components/addTodo.vue'));
+Vue.component('show-todo', require('./components/showTodo.vue'));
+Vue.component('full-todo', require('./components/fullTodo.vue'));
+Vue.component('quick-todo', require('./components/quickViewTodo.vue'));
+
 
 const app = new Vue({
     el: '#app',
@@ -34,4 +41,12 @@ const app = new Vue({
 const weather = new Vue({
   el: '#weather',
   store: weatherStore
+});
+
+const Todo = new Vue({
+  el: '#todo',
+});
+
+const QuickTodo = new Vue({
+  el: '#quick-todo'
 })

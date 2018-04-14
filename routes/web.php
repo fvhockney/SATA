@@ -13,6 +13,7 @@
 
 // Route::get('/', 'MapController@index');
 
+// Static Pages
 Route::get('/', 'StaticController@home')->name('home');
 Route::get('geography', 'StaticController@geography')->name('geography');
 Route::get('history', 'StaticController@history')->name('history');
@@ -23,17 +24,25 @@ Route::get('travel-considerations', 'StaticController@travelConsiderations')->na
 Route::get('weather', 'StaticController@weather')->name('weather');
 Route::get('events', 'StaticController@events')->name('events');
 Route::get('services', 'StaticController@services')->name('services');
-Route::get('blog', 'StaticController@blog')->name('blog');
 
+// Blog Pages
+Route::get('blog', 'PostController@index')->name('blog');
+Route::get('blog/{post}', 'PostController@show')->name('blog-post');
+Route::get('blog/tags/{tag}', 'TagController@index');
+
+// Contact Pages
 Route::get('contact', 'ContactController@index')->name('contact');
 
-
+// Session Pages
 Route::get('admin/login', 'SessionController@create')->name('login');
 Route::post('admin/login', 'SessionController@store');
 Route::post('admin/logout', 'SessionController@destroy');
 
-
+// Admin Pages
 Route::group(['middleware' => ['role:super-admin']], function () {
   Route::get('admin/dashboard', 'AdminController@show')->name('adminDashboard');
+  Route::get('admin/tasks', 'AdminController@tasks')->name('adminTasks');
   Route::resource('admin/blog-posts', 'AdminPostController');
+  Route::resource('admin/todo', 'TodoController');
+
 });

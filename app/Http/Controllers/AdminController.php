@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Todo;
 
 class AdminController extends Controller
 
@@ -13,6 +14,12 @@ class AdminController extends Controller
   }
 
   function show() {
-    return view('admin.dashboard');
+    $todos = Todo::all();
+    return view('admin.dashboard')->with('todos',$todos);
+  }
+
+  function tasks() {
+    $todos = Todo::all();
+    return view('admin.tasks')->with('todos',$todos);
   }
 }

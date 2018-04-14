@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 use App\User;
 
 class SessionController extends Controller
+
+
 {
+
+
   public function __construct(){
 
   $this->middleware('guest', ['except' => 'destroy']);
@@ -28,7 +32,6 @@ class SessionController extends Controller
           'message' => 'Please check your credentials.'
         ]);
       }
-
 
       return redirect()->route('adminDashboard');
 

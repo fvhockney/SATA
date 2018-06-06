@@ -10,4 +10,5 @@ class Todo extends Model
     'name', 'user', 'status', 'completed_at', 'timestamp'
   ];
 
+
 }

@@ -1,11 +1,11 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{{ route('home') }}"><img src="http://via.placeholder.com/200x75" alt=""></a>
+  <a class="navbar-brand" href="{{ route('home') }}"><img class="rounded-circle" src="http://via.placeholder.com/45x45" alt="Fernweh Logo">Fernweh</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <div class="navbar-nav">
+    <div class="navbar-nav mx-auto">
         <a class="nav-item nav-link active" href="{{ route('services') }}">Services</a>
         <a class="nav-item nav-link" href="{{ route('blog') }}">Blog</a>
         <a class="nav-item nav-link" href="{{ route('contact') }}">Contact</a>

@@ -39,7 +39,7 @@ class TodoController extends Controller
     $todo = new Todo;
     $todo->name = $request->newTodo;
     $todo->user = \Auth::user()->name;
-    $todo->status = 'active';
+    $todo->status = 1;
     $todo->save();
 
     $newTodo = array((object)[
@@ -49,7 +49,7 @@ class TodoController extends Controller
       'status' => $todo->status
       ]);
 
-      return $newTodo;
+      return $todo;
     }
 
     /**
@@ -83,10 +83,10 @@ class TodoController extends Controller
     */
     public function update(Request $request, Todo $todo)
     {
-      if ($request->status == 'active'){
-        $status = 'completed';
+      if ($request->status == 1){
+        $status = 0;
       } else {
-        $status = 'active';
+        $status = 1;
       }
       $updateBag = ["status" => $status, "completed_at" => now()];
       $todo->update($updateBag);

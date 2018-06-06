@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       todos: [],
-      ShowStatus: 'active'
+      ShowStatus: 1
     }
   },
 
@@ -48,7 +48,7 @@ export default {
     },
 
     updateShown: function(display) {
-      this.ShowStatus = (display == 'all') ? '' : display
+      this.ShowStatus = (display == 'all') ? '' : (display == 'active') ? 1 : 0
     }
   },
 

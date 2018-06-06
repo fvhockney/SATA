@@ -1,7 +1,7 @@
 <template>
   <ul class="list-group mt-3">
     <template v-for="item in items" v-if="showiness(item)">
-      <template v-if="item.status == 'completed'">
+      <template v-if="item.status == 0">
         <li class="list-group-item">
           <div class="row text-muted">
             <div class="col-1">

@@ -16,19 +16,23 @@ export default {
   data() {
     return {
       todos: [],
-      ShowStatus: 'active'
+      ShowStatus: 1
     }
   },
 
   methods: {
+
     statusUpdate: function(event) {
-      const id = event.id
+      const todo = event.id
       const status = event.status
-      axios.put(`todo/${id}`, {
+      axios.put(`todo/${todo}`, {
           status
         })
         .then(response => {
-          this.todos[event.id - 1].status = response.data.status
+          const updateItem = this.todos.find((element)=>{
+            return element.id == event.id
+          })
+          updateItem.status = response.data.status
         })
         .catch(error => {
           console.log(error)
@@ -40,8 +44,8 @@ export default {
           newTodo
         })
         .then(response => {
-          console.log(response)
-          this.todos.push(response.data[0])
+          console.log(response.data)
+          this.todos.unshift(response.data)
         })
         .catch(error => {
           console.log(error)
@@ -49,14 +53,19 @@ export default {
     },
 
     updateShown: function(display) {
-      this.ShowStatus = (display == 'all') ? '' : display
+      this.ShowStatus = (display == 'all') ? '' : (display == 'active') ? 1 : 0
+    }
+  },
+
+  computed: {
+    reversedTodos: function(){
+      return this.todos.reverse()
     }
   },
 
   mounted() {
     axios.get('todo')
       .then(response => {
-        // console.log(response)
         this.todos = response.data
       })
       .catch(error => {

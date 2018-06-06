@@ -5,7 +5,7 @@
 
 <body>
 
-  @include('partials.mainNav')
+  {{--@include('partials.mainNav')--}}
 
   @yield('content')
 

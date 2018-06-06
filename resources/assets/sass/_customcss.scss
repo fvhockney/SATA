@@ -1,11 +1,67 @@
 nav {
-  box-shadow: 0 5px 35px darken($gray-800, 5%);
+  opacity: 0.90;
+  a.nav-link {
+    font-size: 1.5rem;
+    margin-right: 1em;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
 
 #head-photo {
-  max-height: 95vh;
+  position: relative;
+  background-image: url("/imgs/j_wall_dusk.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.down-arrow {
+  content: '';
+  width: 4rem;
+  height: 4rem;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(-45deg);
+  align-self: center;
+  margin-top: 100px;
+}
+
+.feature-trip {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 300px;
   width: 100%;
-  height: auto;
+  margin-bottom: 2px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  h2 {
+    margin-top: 3em;
+  }
+}
+
+#taste-of-trip {
+  background-image: url("/imgs/olives_oil.jpg");;
+  background-size: cover;
+  background-position: 0 85%;
+}
+
+#religious-trip {
+  background-image: url("/imgs/dome_of_rock.jpg");
+  background-size: cover;
+  background-position: 0 51%;
+}
+
+#historical-trip {
+  background-image: url("/imgs/camels.jpg");
+  background-size: cover;
+  background-position: 0 57%;
 }
 
 .img-fade {
@@ -15,6 +71,7 @@ nav {
     transition: ease 0.5s;
   }
   &:hover {
+    cursor: pointer;
     img {
       opacity: 0.3;
     }
@@ -30,27 +87,4 @@ nav {
     opacity: 0;
     transition: ease 0.5s;
   }
-}
-
-.custom-grid-photo {
-  display: grid;
-  grid-template-rows: repeat(6, 1fr);
-  grid-template-columns: repeat(9, 1fr);
-  grid-auto-flow: row;
-}
-
-.rs-2 {
-  grid-row-end: span 2;
-}
-
-.rs-3 {
-  grid-row-end: span 3;
-}
-
-.cs-2 {
-  grid-column-end: span 2;
-}
-
-.cs-3 {
-  grid-column-end: span 3;
 }

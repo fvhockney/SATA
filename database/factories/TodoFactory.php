@@ -6,8 +6,8 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Todo::class, function (Faker $faker) {
 
-    $status = $faker->randomElement($array = array ('completed', 'active'));
-    $completed_at = ($status == 'completed') ? now() : null;
+    $status = $faker->randomElement($array = array (0, 1));
+    $completed_at = ($status == 0) ? now() : null;
 
     return [
         'name'=> $faker->sentence($nbWords = 6, $variableNbWords = true),

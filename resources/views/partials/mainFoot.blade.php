@@ -1,4 +1,4 @@
-<footer class="d-flex flex-column flex-md-row justify-content-around py-3" style="box-shadow: 0px 3px 20px -5px black inset; background-color: grey;">
+<footer class="d-flex flex-column flex-md-row justify-content-around py-3 bg-dark text-light">
   <div>
     copyright 2018<br>
     Fernweh Israel

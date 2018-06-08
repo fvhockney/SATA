@@ -1,4 +1,4 @@
-<div class="nav nav-tabs">
+<div class="nav nav-tabs pt-5">
   <a href="{{ route('adminDashboard') }}" class="nav-item nav-link active">Dashboard</a>
   <div class="dropdown">
     <a href="#" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" role="button">Blog</a>
@@ -14,3 +14,5 @@
     <button type="submit" class="btn btn-danger">Logout</button>
   </form>
 </div>
+
+

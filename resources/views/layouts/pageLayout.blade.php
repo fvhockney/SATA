@@ -7,6 +7,8 @@
 
   @include('partials.mainNav')
 
+  @yield('head-photo')
+
   <div class="container py-5">
     @yield('content')
   </div>

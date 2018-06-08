@@ -24,6 +24,8 @@ Route::get('travel-considerations', 'StaticController@travelConsiderations')->na
 Route::get('weather', 'StaticController@weather')->name('weather');
 Route::get('events', 'StaticController@events')->name('events');
 Route::get('services', 'StaticController@services')->name('services');
+Route::get('info', 'StaticController@info')->name('info');
+Route::get('galleries', 'StaticController@galleries')->name('galleries');
 
 // Blog Pages
 Route::get('blog', 'PostController@index')->name('blog');

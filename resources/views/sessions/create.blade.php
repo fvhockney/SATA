@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-  <h1>Admin Login</h1>
+  <h1 class="pt-5">Admin Login</h1>
   <p>
     Please input your credentials to log in to the administration area of the website. If you are not authorized and believe you should be, please contact the site administrator.
   </p>

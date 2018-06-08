@@ -42,85 +42,20 @@
         <button class="btn btn-lg btn-outline-light mx-auto">See More</button>
     </div>
 
-    <h3 class="text-center pt-5">Regions of Israel</h3>
-    <div class="d-flex flex-row flex-wrap justify-content-around pb-5 mx-auto" style="width: 85%;">
-        <div class="card w-25 m-2 img-fade">
-            <img src="http://via.placeholder.com/222x333" alt="" class="card-img">
-            <div class="img-fade-overlay">
-                <button type="button" class="btn btn-outline-dark">Learn More</button>
-            </div>
-            <div class="card-img-overlay">
-                <h5 class="card-title">North: Golan and Galile</h5>
-            </div>
-        </div>
-        <div class="card w-25 m-2 img-fade">
-            <img src="http://via.placeholder.com/222x333" alt="" class="card-img">
-            <div class="img-fade-overlay">
-                <button type="button" class="btn btn-outline-dark">Learn More</button>
-            </div>
-            <div class="card-img-overlay">
-                <h5 class="card-title">Central: Coastal plains</h5>
-            </div>
-        </div>
-        <div class="card w-25 m-2 img-fade">
-            <img src="http://via.placeholder.com/222x333" alt="" class="card-img">
-            <div class="img-fade-overlay">
-                <button type="button" class="btn btn-outline-dark">Learn More</button>
-            </div>
-            <div class="card-img-overlay">
-                <h5 class="card-title">Negev Desert</h5>
-            </div>
-        </div>
-        <div class="card w-25 m-2 img-fade">
-            <img src="http://via.placeholder.com/222x333" alt="" class="card-img">
-            <div class="img-fade-overlay">
-                <button type="button" class="btn btn-outline-dark">Learn More</button>
-            </div>
-            <div class="card-img-overlay">
-                <h5 class="card-title">Dead Sea</h5>
-            </div>
-        </div>
-        <div class="card w-25 m-2 img-fade">
-            <img src="http://via.placeholder.com/222x333" alt="" class="card-img">
-            <div class="img-fade-overlay">
-                <button type="button" class="btn btn-outline-dark">Learn More</button>
-            </div>
-            <div class="card-img-overlay">
-                <h5 class="card-title">The West Bank</h5>
-            </div>
-        </div>
-        <div class="card w-25 m-2 img-fade">
-            <img src="http://via.placeholder.com/222x333" alt="" class="card-img">
-            <div class="img-fade-overlay">
-                <button type="button" class="btn btn-outline-dark">Learn More</button>
-            </div>
-            <div class="card-img-overlay">
-                <h5 class="card-title">Jerusalem</h5>
-            </div>
-        </div>
-        <div class="card w-25 m-2 img-fade">
-            <img src="http://via.placeholder.com/222x333" alt="" class="card-img">
-            <div class="img-fade-overlay">
-                <button type="button" class="btn btn-outline-dark">Learn More</button>
-            </div>
-            <div class="card-img-overlay">
-                <h5 class="card-title">Tel Aviv</h5>
-            </div>
-        </div>
-    </div>
 
-    {{--<script type="text/javascript">--}}
-    {{--// window.onload = function() {document.getElementById("nav-bar").style.opacity= "0";}--}}
-    {{--window.onscroll = function() {scrollFunction()};--}}
 
-    {{--function scrollFunction() {--}}
-    {{--if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {--}}
-    {{--document.getElementById("nav-bar").style.opacity = "0";--}}
-    {{--} else {--}}
-    {{--document.getElementById("nav-bar").style.opacity = "0";--}}
-    {{--document.getElementById("nav-bar").style.transition = "opacity 0.3s ease-out";--}}
+    <script type="text/javascript">
+    window.onload = function() {document.getElementById("main-nav").style.opacity= "0";}
+    window.onscroll = function() {scrollFunction()};
 
-    {{--}--}}
-    {{--}--}}
-    {{--</script>--}}
+    function scrollFunction() {
+    if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+    document.getElementById("main-nav").style.opacity = "1";
+    } else {
+    document.getElementById("main-nav").style.opacity = "0";
+    document.getElementById("main-nav").style.transition = "opacity 0.3s ease-out";
+
+    }
+    }
+    </script>
 @endsection

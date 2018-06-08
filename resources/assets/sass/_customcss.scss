@@ -127,3 +127,22 @@ nav {
     transition: ease 0.5s;
   }
 }
+
+.head-photo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 55vh;
+  background-size: cover;
+}
+
+#contact-head-photo {
+  background-image: url("/imgs/jaffa_seawall.jpg");
+  background-position: center;
+}
+
+#services-head-photo {
+  background-image: url("/imgs/Il_landscape.jpg");
+  background-position: center;
+}

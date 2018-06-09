@@ -13,7 +13,7 @@
     <div id="head-photo" class="mb-5">
         <h1 class="text-light text-center">Fernweh Israel</h1>
         <h5 class="text-light mt-5 text-center">Old world meet new adventure</h5>
-        <button class="btn btn-outline-light btn-lg mx-auto">Explore Trips</button>
+        <a href="{{route('services')}}" class="btn btn-outline-light btn-lg mx-auto">Explore Trips</a>
         <div class="down-arrow"></div>
     </div>
 

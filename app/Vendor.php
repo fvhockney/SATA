@@ -4,16 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Hotel extends Model
+class Vendor extends Model
 {
     protected $fillable = [
-        'name',
+        'company',
+        'contact_name',
         'street',
         'city',
         'zip',
+        'country',
+        'phone',
+        'email',
         'website',
-        'main_phone',
-        'stars',
-        'price_tier',
     ];
 }

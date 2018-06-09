@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Hotel extends Model
+class Attraction extends Model
 {
-    protected $fillable = [
+    protected $fillable = array(
         'name',
         'street',
         'city',
@@ -15,5 +15,7 @@ class Hotel extends Model
         'main_phone',
         'stars',
         'price_tier',
-    ];
+        'created_at',
+        'modified_at',
+    );    //
 }

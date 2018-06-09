@@ -4,20 +4,22 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Hotel extends Migration
+class Restaurant extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
     public function up()
     {
-        Schema::create('hotels', function (Blueprint $table) {
+        Schema::create('restaurants', function ( Blueprint $table ) {
             $table->increments('id');
             $table->string('name');
             $table->string('street');
             $table->string('city');
-            $table->integer('zip');
-            $table->string('type')->default('hotel');
+            $table->string('zip');
+            $table->string('type')->default('restaurant');
             $table->string('website');
             $table->string('main_phone');
             $table->integer('stars');
@@ -28,9 +30,12 @@ class Hotel extends Migration
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
     public function down()
     {
-        Schema::drop('hotels');
+        //
+        Schema::dropIfExists('restaurants');
     }
 }

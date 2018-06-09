@@ -4,33 +4,37 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Hotel extends Migration
+class CreateVendorsTable extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
     public function up()
     {
-        Schema::create('hotels', function (Blueprint $table) {
+        Schema::create('vendors', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('company');
+            $table->string('contact_name');
             $table->string('street');
             $table->string('city');
             $table->integer('zip');
-            $table->string('type')->default('hotel');
+            $table->string('country');
+            $table->string('phone');
+            $table->string('email');
             $table->string('website');
-            $table->string('main_phone');
-            $table->integer('stars');
-            $table->integer('price_tier');
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
     public function down()
     {
-        Schema::drop('hotels');
+        Schema::dropIfExists('vendors');
     }
 }

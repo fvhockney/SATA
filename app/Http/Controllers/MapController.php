@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Hotel;
-use App\Restaraunt;
+use App\Restaurant;
 
 class MapController extends Controller
 {
     public function index()
     {
         $hotels = Hotel::all();
-        $restaraunts = Restaraunt::all();
+        $restaraunts = Restaurant::all();
         $combined = $hotels->merge($restaraunts);
         $json = $combined->toArray();
 

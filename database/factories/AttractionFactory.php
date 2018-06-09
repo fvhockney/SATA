@@ -1,11 +1,8 @@
 <?php
 
 use Faker\Generator as Faker;
-use Faker\Provider\Address;
 
-/* @var Illuminate\Database\Eloquent\Factory $factory */
-
-$factory->define(App\Hotel::class, function (Faker $faker) {
+$factory->define(App\Attraction::class, function (Faker $faker) {
     return [
         'name'=>$faker->company,
         'street'=>$faker->streetName,
@@ -14,6 +11,6 @@ $factory->define(App\Hotel::class, function (Faker $faker) {
         'website'=>$faker->domainName,
         'main_phone'=>$faker->e164PhoneNumber,
         'stars'=>$faker->numberBetween($min = 0, $max = 5),
-        'price_tier'=>$faker->numberBetween($min = 0, $max = 5),
+        'price_tier'=>$faker->numberBetween($min = 0, $max = 5),        //
     ];
 });

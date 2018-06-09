@@ -15,7 +15,7 @@ class ContactForm extends FormRequest
     {
         return true;
     }
-    
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,16 +24,13 @@ class ContactForm extends FormRequest
     public function rules()
     {
         return [
-            
             'attachment' => 'mimes:doc,docx,pdf,odt,rtf,txt,tex',
             'title' => 'required',
             'firstName' => 'required',
             'lastName' => 'required',
             'email' => 'required',
             'serviceType' => 'required',
-            'message' => 'required'
-            
-            
+            'message' => 'required',
         ];
     }
 }

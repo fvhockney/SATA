@@ -5,20 +5,15 @@
 
 @include('partials.commonJS')
 <body>
+<div id="admin-container">
 
-  @include('partials.mainNav')
+    @include('admin.partials.adminHeader')
+    @include('admin.partials.adminNav')
+    <div id="dashboard-container">
+        @yield('content')
+    </div>
 
-  <div class="container py-5">
-
-
-    @include('partials.adminNav')
-
-    @yield('content')
-
-  </div>
-
-  @include('partials.mainFoot')
-
+</div>
 
 </body>
 

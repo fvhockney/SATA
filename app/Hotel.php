@@ -6,14 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hotel extends Model
 {
-    protected $fillable = [
-        'name',
-        'street',
-        'city',
-        'zip',
-        'website',
-        'main_phone',
-        'stars',
-        'price_tier',
-    ];
+    protected $fillable = ['name'];
+
+    public function service() {
+        return $this->morphMany(Service::class, 'serviceable');
+    }
 }

@@ -10443,3 +10443,66 @@ nav a.nav-link:last-child {
   background-position: center;
 }
 
+#admin-container {
+  display: grid;
+  grid-template-columns: [cols] auto [c1] 1fr [cole];
+  grid-template-rows: [rows] 70px [r1] calc(100vh - 70px) [rowe];
+}
+
+#admin-header {
+  grid-column: cols / cole;
+  grid-row: rows / r1;
+  background-color: #dee2e6;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2em;
+  -webkit-box-shadow: 2px 1px 5px 1px #a4afba;
+          box-shadow: 2px 1px 5px 1px #a4afba;
+}
+
+#admin-header a {
+  color: #343a40;
+}
+
+#admin-header .fa-envelope:hover,
+#admin-header .fa-tachometer-alt:hover,
+#admin-header .fa-bell:hover {
+  -webkit-filter: drop-shadow(2px 2px 2px #a4afba);
+          filter: drop-shadow(2px 2px 2px #a4afba);
+}
+
+#admin-side-nav {
+  grid-column: cols /c1;
+  grid-row: r1 / rowe;
+  background-color: #868e96;
+}
+
+#admin-side-nav .nav-item {
+  color: #f8f9fa;
+  padding: 1.25em 2em;
+}
+
+#admin-side-nav .nav-item:hover {
+  cursor: pointer;
+  background-color: #a1a8ae;
+}
+
+#admin-side-nav .admin-dropdown-item {
+  background-color: #adb5bd;
+}
+
+#admin-side-nav .admin-dropdown-item:hover {
+  background-color: #c9cfd4;
+}
+
+#admin-side-nav .dropdown-hide {
+  display: none;
+}
+
+#dashboard-container {
+  grid-column: c1 / cole;
+  grid-row: r1 / rowe;
+  overflow: auto;
+}
+

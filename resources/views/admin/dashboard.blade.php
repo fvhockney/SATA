@@ -9,8 +9,8 @@
 @endsection
 
 @section('content')
+  <div class="container">
   <h1>Admin Stuff</h1>
-
   <div id="quick-todo" class='container'>
     <div class="row">
       <div class="col">
@@ -21,7 +21,7 @@
       </div>
     </div>
   </div>
-
+  </div>
   <script src="{{ mix('/js/app.js') }}"></script>
   </script>
 @endsection

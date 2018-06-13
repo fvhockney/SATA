@@ -1,0 +1,54 @@
+#admin-container {
+  display: grid;
+  grid-template-columns: [cols] auto [c1] 1fr [cole];
+  grid-template-rows: [rows] 70px [r1] calc(100vh - 70px) [rowe];
+}
+
+#admin-header {
+  grid-column: cols / cole;
+  grid-row: rows / r1;
+  background-color: $gray-300;
+  align-items: center;
+  padding: 2em;
+  box-shadow: 2px 1px 5px 1px darken($gray-300, 20%);
+  a {
+    color: $dark;
+  }
+  .fa-envelope, .fa-tachometer-alt, .fa-bell {
+    &:hover {
+      filter: drop-shadow(2px 2px 2px darken($gray-300, 20%));
+    }
+  }
+}
+
+#admin-side-nav {
+  grid-column: cols /c1;
+  grid-row: r1 / rowe;
+  background-color: $gray-600;
+  //box-shadow: 1px 2px 5px 1px darken($gray-600, 20%);
+  .nav-item {
+    color: $light;
+    padding: 1.25em 2em;
+    &:hover {
+        //transform: translateX(10%);
+      cursor: pointer;
+      background-color: lighten($gray-600,10%);
+    }
+  }
+  .admin-dropdown-item {
+    background-color: $gray-500;
+    &:hover {
+      background-color: lighten($gray-500, 10%);
+    }
+  }
+  .dropdown-hide {
+    display: none;
+  }
+}
+
+#dashboard-container {
+  grid-column: c1 / cole;
+  grid-row: r1 / rowe;
+  overflow: auto;
+}
+

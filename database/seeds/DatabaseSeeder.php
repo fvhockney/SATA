@@ -11,10 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        factory(App\Vendor::class, 3)->create();
+        factory(App\Hotel::class, 5)->create()->each(function ($h) {
+            $service = new App\Service();
+            $h->service()->save($service);
+        });
         $this->call([
-          // HotelSeeder::class,
-          // RestaurantSeeder::class,
           TagsTableSeeder::class,
           PostsTableSeeder::class,
           RolesAndPermissionsSeeder::class,

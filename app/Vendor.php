@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vendor extends Model
 {
-   protected $fillable = ['name'];
+    protected $fillable = ['name'];
 
-   public function service() {
-       return $this->belongsToMany(Service::class);
-   }
+    public function service()
+    {
+        return $this->belongsToMany(Service::class);
+    }
 }

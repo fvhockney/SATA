@@ -25,12 +25,10 @@
   grid-column: cols /c1;
   grid-row: r1 / rowe;
   background-color: $gray-600;
-  //box-shadow: 1px 2px 5px 1px darken($gray-600, 20%);
   .nav-item {
     color: $light;
     padding: 1.25em 2em;
     &:hover {
-        //transform: translateX(10%);
       cursor: pointer;
       background-color: lighten($gray-600,10%);
     }

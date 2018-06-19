@@ -57,7 +57,7 @@ export default {
     },
 
     showiness: function(item) {
-      return (this.ShowStatus !== '') ? item.status == this.ShowStatus : true
+      return this.ShowStatus !== '' ? item.status === this.ShowStatus : true
     },
 
   }

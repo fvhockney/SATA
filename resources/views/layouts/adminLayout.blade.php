@@ -3,18 +3,15 @@
 
 @include('partials.siteHeader')
 
-@include('partials.commonJS')
 <body>
-<div id="admin-container">
 
-    @include('admin.partials.adminHeader')
-    @include('admin.partials.adminNav')
-    <div id="dashboard-container">
-        @yield('content')
-    </div>
 
+<div id="admin">
+    <admin-layout :user="{!! auth()->user()->id !!}"></admin-layout>
 </div>
 
+@include('partials.commonJS')
+<script src={{ mix('js/adminApp.js') }}></script>
 </body>
 
 </html>

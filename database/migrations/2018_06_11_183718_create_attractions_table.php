@@ -16,6 +16,7 @@ class CreateAttractionsTable extends Migration
         Schema::create('attractions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('type')->default('attraction');
             $table->timestamps();
         });
     }

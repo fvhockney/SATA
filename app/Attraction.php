@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Attraction extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'type'];
 
     public function service() {
-        return $this->morphMany('App\Service', 'serviceable');
+        return $this->morphOne(Service::class, 'serviceable');
     }
 }

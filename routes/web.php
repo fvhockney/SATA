@@ -41,10 +41,25 @@ Route::post('admin/login', 'SessionController@store');
 Route::post('admin/logout', 'SessionController@destroy');
 
 // Admin Pages
-Route::group(['middleware' => ['role:super-admin']], function () {
-  Route::get('admin/dashboard', 'AdminController@show')->name('adminDashboard');
-  Route::get('admin/tasks', 'AdminController@tasks')->name('adminTasks');
-  Route::resource('admin/blog-posts', 'AdminPostController');
-  Route::resource('admin/todo', 'TodoController');
-
-});
+Route::group(
+    ['middleware' => ['role:super-admin'],
+              'prefix' => 'admin',
+              'namespace' => 'Admin', ],
+    function () {
+        Route::get('/', 'AdminController@show')->name('adminDashboard');
+        Route::resource('/profile', 'ProfileController')->except(['index', 'create', 'store']);
+        Route::resources([
+      '/blog-posts' => 'PostController',
+      '/todo' => 'TodoController',
+      '/vendor' => 'VendorController',
+      '/transport' => 'TransportController',
+      '/tour' => 'TourController',
+      '/room' => 'RoomController',
+      '/restaurant' => 'RestaurantController',
+      '/hotel' => 'HotelController',
+      '/fare' => 'FareController',
+      '/dish' => 'DishController',
+      '/attraction' => 'AttractionController',
+      ]);
+    }
+);

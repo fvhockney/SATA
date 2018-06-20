@@ -1,6 +1,4 @@
 import Dashboard from '../views/Dashboard';
-import VendorAdd from '../views/VendorAdd';
-import VendorFind from '../views/VendorFind';
 import CustomerAdd from '../views/CustomerAdd';
 import CustomerFind from '../views/CustomerFind';
 import ServiceFind from '../views/ServiceFind';
@@ -17,8 +15,6 @@ import ServiceProfile from '../views/ServiceProfile';
 export default
     [
         { path: '/', component: Dashboard },
-        { path: '/vendor/add', component: VendorAdd },
-        { path: '/vendor/find', component: VendorFind },
         { path: '/customer/add', component: CustomerAdd },
         { path: '/customer/find', component: CustomerFind },
         { path: '/service', component: Service,

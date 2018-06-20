@@ -22,8 +22,6 @@ class DatabaseSeeder extends Seeder
           ToursTableSeeder::class,
           TransportsTableSeeder::class,
           HotelsTableSeeder::class,
-          VendorsTableSeeder::class,
-          VendorServiceTableSeeder::class,
         ]);
     }
 }

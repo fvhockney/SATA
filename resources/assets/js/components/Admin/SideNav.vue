@@ -3,17 +3,6 @@
         <router-link to="/" class="nav-item nav-link">
             <i class="fa-fw fa-lg fas fa-tachometer-alt mr-1"></i>Dashboard
         </router-link>
-        <div @click="toggleDropDown" class="nav-item">
-            <i class="fa-fw fa-lg fas fa-handshake mr-1"></i>Vendors
-        </div>
-        <div class="admin-dropdown dropdown-hide">
-            <router-link to="/vendor/add" class="nav-item nav-link admin-dropdown-item">
-                <i class="fa-fw fa-lg fas fa-plus mr-1"></i>New
-            </router-link>
-            <router-link to="/vendor/find" class="nav-item nav-link admin-dropdown-item">
-                <i class="fa-fw fa-lg fas fa-search mr-1"></i>Find
-            </router-link>
-        </div>
 
         <div @click="toggleDropDown" class="nav-item">
             <i class="fa-fw fa-lg fas fa-user-friends mr-1"></i>Customers

@@ -20,7 +20,6 @@ class HotelProfile extends JsonResource
                 'name' => $this->name,
                 'id'   => $this->id,
             ],
-            'vendors'    => $this->service->vendor,
             'rooms'      => $this->room,
             'restaurant' => $this->restaurant,
         ];

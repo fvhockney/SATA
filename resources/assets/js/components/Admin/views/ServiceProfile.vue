@@ -7,14 +7,6 @@
             </b-form-group>
         </template>
 
-        <h2>Vendors</h2>
-        <template v-if="loaded">
-            <b-form-group v-for="vendor in profile.vendors" horizontal :key="vendor.id" :label-cols="1"
-                          :label="'Vendor '+vendor.id" :label-for="'vendor_'+vendor.id">
-                <b-form-input :id="'vendor_'+vendor.id" plaintext v-model.trim="vendor.name"></b-form-input>
-            </b-form-group>
-        </template>
-
         <h2>Restaurants</h2>
         <template v-if="loaded">
             <b-form-group v-for="restaurant in profile.restaurant" horizontal :key="restaurant.id" :label-cols="2"

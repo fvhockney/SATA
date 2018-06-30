@@ -12,10 +12,26 @@ const state = {
     transportBaseLink: '/admin/transport',
     attractionBaseLink: '/admin/attraction',
     loadStatus: 'loading',
+    types: ['hotel', 'restaurant', 'tour', 'transport', 'attraction'],
+    service: {
+        name: '',
+        type: null,
+        restaurants: [],
+        rooms: [],
+        dishes: [],
+        fares: [],
+        notes: [],
+    }
 };
 
 // getters
 const getters = {
+    serviceName(state){
+        return state.service.name
+    },
+    serviceType(state){
+        return state.service.type
+    }
 
 };
 
@@ -61,6 +77,15 @@ const mutations = {
     makeAll(state){
         state.all = _.groupBy(_.concat(state.all, state.hotels, state.restaurants, state.tours, state.transports, state.attractions), (b)=>{return b.type;})
         state.loadStatus = 'loaded'
+    },
+    setServiceName(state, payload){
+        state.service.name = payload
+    },
+    setServiceType(state,payload){
+        state.service.type = payload
+    },
+    saveRoom(state,payload){
+        state.service.rooms.push(payload)
     }
 };
 

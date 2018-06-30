@@ -51,7 +51,6 @@ Route::group(
         Route::resources([
       '/blog-posts' => 'PostController',
       '/todo' => 'TodoController',
-      '/vendor' => 'VendorController',
       '/transport' => 'TransportController',
       '/tour' => 'TourController',
       '/room' => 'RoomController',

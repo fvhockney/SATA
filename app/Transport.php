@@ -3,14 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\ServicesTraits;
 
 class Transport extends Model
 {
-    protected $fillable = ['name', 'type'];
+    use ServicesTraits;
 
-    public function service() {
-        return $this->morphOne(Service::class, 'serviceable');
-    }
+    protected $fillable = ['name', 'type'];
 
     public function fare() {
         return $this->hasMany(Fare::class);

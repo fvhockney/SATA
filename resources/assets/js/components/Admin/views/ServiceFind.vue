@@ -51,7 +51,7 @@
 
         computed: {
             items: function () {
-                return _(this.all).chain().pick(this.showTypes).values().concat().flatten().value()
+                return _(this.all).pick(this.showTypes).values().concat().flatten().value()
             },
             ...mapState('Services', {
                 loadStatus: 'loadStatus',

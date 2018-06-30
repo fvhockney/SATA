@@ -17,8 +17,9 @@ class HotelProfile extends JsonResource
     {
         return [
             'service'    => [
-                'name' => $this->name,
-                'id'   => $this->id,
+                'name'    => $this->name,
+                'id'      => $this->id,
+                'contact' => $this->contact,
             ],
             'rooms'      => $this->room,
             'restaurant' => $this->restaurant,

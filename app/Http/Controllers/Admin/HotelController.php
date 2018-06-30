@@ -41,7 +41,10 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->input());
+//        $hotel = Hotel::create($request->input());
+
+        if (request()->wantsJson()){return $hotel;}
     }
 
     /**
@@ -52,7 +55,8 @@ class HotelController extends Controller
      */
     public function show(Hotel $hotel)
     {
-        return new HotelProfile($hotel);
+        HotelProfile::withoutWrapping();
+        return response(new HotelProfile($hotel));
     }
 
     /**

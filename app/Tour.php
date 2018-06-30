@@ -3,12 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\ServicesTraits;
 
 class Tour extends Model
 {
-    protected $fillable = ['name', 'type'];
+    use ServicesTraits;
 
-    public function service() {
-        return $this->morphMany('App\Service', 'serviceable');
-    }
+    protected $fillable = ['name', 'type'];
 }

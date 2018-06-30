@@ -17,11 +17,7 @@ class DatabaseSeeder extends Seeder
           RolesAndPermissionsSeeder::class,
           UsersTableSeeder::class,
           TodoTableSeeder::class,
-          RestaurantsTableSeeder::class,
-          AttractionsTableSeeder::class,
-          ToursTableSeeder::class,
-          TransportsTableSeeder::class,
-          HotelsTableSeeder::class,
+          ServicesSeeder::class,
         ]);
     }
 }

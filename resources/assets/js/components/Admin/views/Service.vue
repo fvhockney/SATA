@@ -7,7 +7,6 @@
 <script>
     export default {
         name: "Service",
-        props: ['id', 'type']
     }
 </script>
 

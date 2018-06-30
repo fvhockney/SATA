@@ -24,9 +24,6 @@ export default
                 { path:':type/:id', component: ServiceProfile, props:true }
             ]
         },
-        // { path: '/service/find', component: ServiceFind},
-        // { path: '/service/add', component: ServiceAdd },
-        // {path: '/service/:type/:id', component: Service, props: true},
         { path: '/finances', component: Finances },
         { path: '/stats', component: Stats },
         { path: '/task', component: Task },

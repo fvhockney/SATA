@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDishesTable extends Migration
+class CreateContactsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,16 @@ class CreateDishesTable extends Migration
      */
     public function up()
     {
-        Schema::create('dishes', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
+            $table->morphs('contactable');
+            $table->string('street');
+            $table->string('city');
+            $table->string('zip');
+            $table->string('country');
             $table->string('name');
-            $table->double('price');
-            $table->string('type')->nullable();
-            $table->unsignedInteger('restaurant_id')->nullable();
-            $table->foreign('restaurant_id')->references('id')->on('restaurants');
+            $table->string('phone');
+            $table->string('email');
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ class CreateDishesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('dishes');
+        Schema::drop('contacts');
     }
 }

@@ -10506,3 +10506,13 @@ nav a.nav-link:last-child {
   overflow: auto;
 }
 
+.fa-trash-alt:hover {
+  color: #ffc107;
+  cursor: pointer;
+}
+
+.fa-plus-square:hover {
+  color: #007bff;
+  cursor: pointer;
+}
+

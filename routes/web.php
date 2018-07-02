@@ -59,6 +59,7 @@ Route::group(
       '/fare' => 'FareController',
       '/dish' => 'DishController',
       '/attraction' => 'AttractionController',
+      '/contact' => 'AddressbookController',
       ]);
     }
 );

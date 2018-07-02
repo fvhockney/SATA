@@ -50,3 +50,17 @@
   overflow: auto;
 }
 
+.fa-trash-alt {
+  &:hover{
+    color: $warning;
+    cursor: pointer;
+  }
+}
+
+.fa-plus-square {
+  &:hover{
+    color: $primary;
+    cursor: pointer;
+  }
+}
+

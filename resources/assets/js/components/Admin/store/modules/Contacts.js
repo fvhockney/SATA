@@ -1,18 +1,39 @@
 // initial state
 const state = {
+    addressbook: [],
     newContacts: []
 };
 
 // getters
-const getters = {};
+const getters = {
+    searchableContacts: (state) => {
+       return _.map(state.addressbook, c=>{
+           return _.pick(c, ['id', 'name'])
+       })
+    }
+};
 
 // actions
-const actions = {};
+const actions = {
+    getAddressbook({commit}) {
+        axios.get('/admin/contact')
+            .then(response => {
+                commit('initAddressbook', response.data.data.addressbook)
+            })
+    }
+};
 
 // mutations
 const mutations = {
-    saveContact(state, contact){
+    initAddressbook(state, addressbook){
+        state.addressbook = addressbook
+
+    },
+    saveContact(state, contact) {
         state.newContacts.push(contact)
+    },
+    removeContact(state, contact){
+        state.newContacts.splice(_.indexOf(state.newContacts, contact), 1)
     }
 };
 

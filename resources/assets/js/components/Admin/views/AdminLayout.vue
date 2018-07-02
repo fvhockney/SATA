@@ -16,6 +16,7 @@
         props: ['user'],
         created () {
             this.$store.dispatch('Profile/getProfile', this.user)
+            this.$store.dispatch('Contacts/getAddressbook')
         }
     }
 </script>

@@ -84,8 +84,12 @@ const mutations = {
     setServiceType(state,payload){
         state.service.type = payload
     },
-    saveRoom(state,payload){
-        state.service.rooms.push(payload)
+    saveAddOn(state,payload){
+        state.service[payload[0]].push(payload[1])
+    },
+    removeServiceAddOn(state,payload){
+        console.log(payload)
+        state.service[payload[0]].splice(_.indexOf(state.service[payload[1]]), 1)
     }
 };
 

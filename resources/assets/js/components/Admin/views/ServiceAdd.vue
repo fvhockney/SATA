@@ -9,6 +9,9 @@
 
         <add-contact></add-contact>
         <add-room></add-room>
+        <add-dish></add-dish>
+        <add-fare></add-fare>
+        <add-note></add-note>
     </div>
 </template>
 
@@ -16,6 +19,9 @@
     import {mapState} from 'vuex';
     import AddContact from '../Comps/AddContact';
     import AddRoom from '../Comps/AddRoom';
+    import AddDish from '../Comps/AddDish';
+    import AddFare from '../Comps/AddFare';
+    import AddNote from '../Comps/AddNote';
     import Services from '../store/modules/Services';
     import ServiceBasicInfo from '../Comps/ServiceBasicInfo';
     import AddServiceMenu from '../Comps/AddServiceMenu';
@@ -23,7 +29,9 @@
 
     export default {
         name: "ServiceAdd",
-        components: {AddContact, ServiceBasicInfo, AddServiceMenu, ServiceAddStatus, AddRoom},
+        components: {
+            AddContact, ServiceBasicInfo, AddServiceMenu, ServiceAddStatus, AddRoom, AddDish, AddFare, AddNote
+        },
         data() {
             return {}
         },
@@ -31,7 +39,7 @@
         computed: {
             ...mapState('Services', {
                 service: 'service'
-    })
+            })
         },
 
         methods: {

@@ -1,6 +1,6 @@
 require('./bootstrap');
+const uuid = require('uuid/v1');
 
-import axios from 'axios';
 import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
 import router from './components/Admin/router';

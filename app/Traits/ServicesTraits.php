@@ -8,7 +8,7 @@ use App\Contact;
 trait ServicesTraits
 {
     public function contact() {
-        return $this->morphOne(Contact::class, 'contactable');
+        return $this->morphToMany(Contact::class, 'contactable');
     }
 
     public function booking() {

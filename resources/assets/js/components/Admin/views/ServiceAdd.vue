@@ -4,19 +4,24 @@
         <add-service-menu v-show="service.type !== null" :serviceType="service.type"></add-service-menu>
         <service-add-status v-show="service.type !== null"></service-add-status>
         <b-form-group>
-            <b-button @click="onSubmit" variant="primary">Create</b-button>
+            <b-button @click="sendService(contacts)" variant="primary">Create</b-button>
         </b-form-group>
 
-        <add-contact></add-contact>
-        <add-room></add-room>
-        <add-dish></add-dish>
-        <add-fare></add-fare>
-        <add-note></add-note>
+        <add-contact id="AddContactModal"></add-contact>
+        <add-room id="AddRoomModal"></add-room>
+        <add-dish id="AddDishModal"></add-dish>
+        <add-fare id="AddFareModal"></add-fare>
+        <add-note id="AddNoteModal"></add-note>
+        <error :errorPresent="errorPresent" :error="error"></error>
+        <vue-progress :progressShow="sendingStatus"></vue-progress>
+        <create-confirm @hidden="processProofService" :message="proofService" :created="isCreated"></create-confirm>
+
+
     </div>
 </template>
 
 <script>
-    import {mapState} from 'vuex';
+    import {mapState, mapActions, mapMutations} from 'vuex';
     import AddContact from '../Comps/AddContact';
     import AddRoom from '../Comps/AddRoom';
     import AddDish from '../Comps/AddDish';
@@ -26,11 +31,24 @@
     import ServiceBasicInfo from '../Comps/ServiceBasicInfo';
     import AddServiceMenu from '../Comps/AddServiceMenu';
     import ServiceAddStatus from '../Comps/ServiceAddStatus';
+    import Error from '../Comps/Error';
+    import VueProgress from '../Comps/Progress';
+    import CreateConfirm from '../Comps/CreateConfirm';
 
     export default {
         name: "ServiceAdd",
         components: {
-            AddContact, ServiceBasicInfo, AddServiceMenu, ServiceAddStatus, AddRoom, AddDish, AddFare, AddNote
+            AddContact,
+            ServiceBasicInfo,
+            AddServiceMenu,
+            ServiceAddStatus,
+            AddRoom,
+            AddDish,
+            AddFare,
+            AddNote,
+            Error,
+            VueProgress,
+            CreateConfirm,
         },
         data() {
             return {}
@@ -38,21 +56,28 @@
 
         computed: {
             ...mapState('Services', {
-                service: 'service'
+                service: 'service',
+                error: 'error',
+                errorPresent: 'errorPresent',
+                sendingStatus: 'sendingStatus',
+                isCreated: 'created',
+                proofService: 'proofService'
+            }),
+            ...mapState('Contacts', {
+                contacts: 'newContacts',
             })
         },
 
         methods: {
-            showComp(comp) {
-                this.visComps[comp] = true
+            processProofService(payload){
+                this.resetProofService()
             },
-            onSubmit(evt) {
-                evt.preventDefault()
-                axios.post('/admin/' + this.form.service.type, this.form)
-                    .then(response => {
-                        console.log(response)
-                    })
-            }
+            ...mapActions('Services', {
+               sendService: 'sendService'
+            }),
+            ...mapMutations('Services', {
+                resetProofService: 'resetProofService'
+            }),
         }
     }
 </script>

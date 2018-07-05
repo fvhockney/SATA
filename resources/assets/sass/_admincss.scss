@@ -64,3 +64,10 @@
   }
 }
 
+.fa-edit {
+  &:hover{
+  color: $info;
+  cursor: pointer;
+  }
+}
+

@@ -30,10 +30,18 @@ const mutations = {
 
     },
     saveContact(state, contact) {
-        state.newContacts.push(contact)
+        let existing = _.filter(state.newContacts, c=>{return c.localId === contact.localId})[0]
+        if (typeof existing !== 'undefined') {
+            existing = contact
+        } else {
+            state.newContacts.push(contact)
+        }
     },
     removeContact(state, contact){
         state.newContacts.splice(_.indexOf(state.newContacts, contact), 1)
+    },
+    resetNewContacts(state){
+        state.newContacts = []
     }
 };
 

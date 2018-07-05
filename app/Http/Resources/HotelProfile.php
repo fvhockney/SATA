@@ -16,13 +16,15 @@ class HotelProfile extends JsonResource
     public function toArray( $request )
     {
         return [
-            'service'    => [
-                'name'    => $this->name,
-                'id'      => $this->id,
-                'contact' => $this->contact,
+            'data' => [
+                'hotel'      => [
+                    'name'    => $this->name,
+                    'id'      => $this->id,
+                ],
+                'rooms'      => $this->room,
+                'restaurant' => $this->restaurant,
+                'contacts'   => $this->contact,
             ],
-            'rooms'      => $this->room,
-            'restaurant' => $this->restaurant,
         ];
     }
 }

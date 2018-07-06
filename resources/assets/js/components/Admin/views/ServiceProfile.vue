@@ -61,11 +61,10 @@
         created() {
             axios.get('/admin/' + this.type + '/' + this.id)
                 .then((response) => {
-                    console.log(response)
                     this.profile = response.data.data
                     this.loaded = true
                 })
-        }
+        }i
     }
 </script>
 

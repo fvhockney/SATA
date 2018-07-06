@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use App\Booking;
 use App\Contact;
+use App\Note;
 
 trait ServicesTraits
 {
@@ -13,5 +14,9 @@ trait ServicesTraits
 
     public function booking() {
         return $this->morphMany(Booking::class, 'bookable');
+    }
+
+    public function note() {
+        return $this->morphMany(Note::class, 'noteable');
     }
 }

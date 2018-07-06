@@ -12,7 +12,7 @@
         <add-dish id="AddDishModal"></add-dish>
         <add-fare id="AddFareModal"></add-fare>
         <add-note id="AddNoteModal"></add-note>
-        <error :errorPresent="errorPresent" :error="error"></error>
+        <error :errorPresent="errorPresent" :error="error" @dismissed="clearError"></error>
         <vue-progress :progressShow="sendingStatus"></vue-progress>
         <create-confirm @hidden="processProofService" :message="proofService" :created="isCreated"></create-confirm>
 
@@ -69,14 +69,18 @@
         },
 
         methods: {
-            processProofService(payload){
+            processProofService(){
                 this.resetProofService()
+            },
+            clearError(){
+              this.clearError()
             },
             ...mapActions('Services', {
                sendService: 'sendService'
             }),
             ...mapMutations('Services', {
-                resetProofService: 'resetProofService'
+                resetProofService: 'resetProofService',
+                clearError: 'clearError'
             }),
         }
     }

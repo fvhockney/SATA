@@ -4773,19 +4773,6 @@ module.exports = function normalizeComponent (
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-module.exports = __webpack_require__(40);
-module.exports.easing = __webpack_require__(253);
-module.exports.canvas = __webpack_require__(254);
-module.exports.options = __webpack_require__(255);
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
 /*
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
@@ -5011,6 +4998,19 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = __webpack_require__(40);
+module.exports.easing = __webpack_require__(253);
+module.exports.canvas = __webpack_require__(254);
+module.exports.options = __webpack_require__(255);
+
+
+/***/ }),
 /* 7 */,
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -5018,7 +5018,7 @@ function applyToTag (styleElement, obj) {
 "use strict";
 
 
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 module.exports = {
 	/**
@@ -5379,7 +5379,7 @@ module.exports = g;
 
 
 var color = __webpack_require__(85);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 function interpolate(start, view, model, ease) {
 	var keys = Object.keys(model);
@@ -17990,7 +17990,7 @@ module.exports = Cancel;
 "use strict";
 
 
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 function filterByPosition(array, position) {
 	return helpers.where(array, function(v) {
@@ -18416,7 +18416,7 @@ module.exports = {
 "use strict";
 
 
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 /**
  * Namespace to hold static tick generation functions
@@ -50511,7 +50511,7 @@ module.exports = Color;
 "use strict";
 
 
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 /**
  * Helper function to get relative position for an event
@@ -50848,7 +50848,7 @@ module.exports = {
 "use strict";
 
 
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 var basic = __webpack_require__(265);
 var dom = __webpack_require__(266);
 
@@ -50930,7 +50930,7 @@ module.exports = helpers.extend({
 
 
 var defaults = __webpack_require__(8);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 defaults._set('global', {
 	plugins: {}
@@ -63456,7 +63456,7 @@ var Scatter = generateChart('scatter-chart', 'scatter');
  */
 var Chart = __webpack_require__(252)();
 
-Chart.helpers = __webpack_require__(5);
+Chart.helpers = __webpack_require__(6);
 
 // @todo dispatch these helpers into appropriated helpers/helpers.* file and write unit tests!
 __webpack_require__(256)(Chart);
@@ -64223,7 +64223,7 @@ module.exports = {
 
 var color = __webpack_require__(85);
 var defaults = __webpack_require__(8);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 module.exports = function(Chart) {
 
@@ -66026,7 +66026,7 @@ module.exports = {
 
 var defaults = __webpack_require__(8);
 var Element = __webpack_require__(15);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 defaults._set('global', {
 	elements: {
@@ -66140,7 +66140,7 @@ module.exports = Element.extend({
 
 var defaults = __webpack_require__(8);
 var Element = __webpack_require__(15);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 var globalDefaults = defaults.global;
 
@@ -66238,7 +66238,7 @@ module.exports = Element.extend({
 
 var defaults = __webpack_require__(8);
 var Element = __webpack_require__(15);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 var defaultColor = defaults.global.defaultColor;
 
@@ -66598,7 +66598,7 @@ module.exports = {
 
 
 
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 var EXPANDO_KEY = '$chartjs';
 var CSS_PREFIX = 'chartjs-';
@@ -67061,7 +67061,7 @@ helpers.removeEvent = removeEventListener;
 
 var defaults = __webpack_require__(8);
 var Element = __webpack_require__(15);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 defaults._set('global', {
 	animation: {
@@ -67238,7 +67238,7 @@ module.exports = function(Chart) {
 
 
 var defaults = __webpack_require__(8);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 var Interaction = __webpack_require__(86);
 var layouts = __webpack_require__(33);
 var platform = __webpack_require__(87);
@@ -68191,7 +68191,7 @@ module.exports = function(Chart) {
 "use strict";
 
 
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 module.exports = function(Chart) {
 
@@ -68529,7 +68529,7 @@ module.exports = function(Chart) {
 
 
 var defaults = __webpack_require__(8);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 var layouts = __webpack_require__(33);
 
 module.exports = function(Chart) {
@@ -68583,7 +68583,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(8);
 var Element = __webpack_require__(15);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 var Ticks = __webpack_require__(34);
 
 defaults._set('scale', {
@@ -69526,7 +69526,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(8);
 var Element = __webpack_require__(15);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 defaults._set('global', {
 	tooltips: {
@@ -70479,7 +70479,7 @@ module.exports = function(Chart) {
 "use strict";
 
 
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 /**
  * Generate a set of linear ticks
@@ -70813,7 +70813,7 @@ module.exports = function(Chart) {
 
 
 var defaults = __webpack_require__(8);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 var Ticks = __webpack_require__(34);
 
 module.exports = function(Chart) {
@@ -71010,7 +71010,7 @@ module.exports = function(Chart) {
 "use strict";
 
 
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 var Ticks = __webpack_require__(34);
 
 /**
@@ -71365,7 +71365,7 @@ module.exports = function(Chart) {
 
 
 var defaults = __webpack_require__(8);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 var Ticks = __webpack_require__(34);
 
 module.exports = function(Chart) {
@@ -71905,7 +71905,7 @@ var moment = __webpack_require__(0);
 moment = typeof moment === 'function' ? moment : window.moment;
 
 var defaults = __webpack_require__(8);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 // Integer constants are from the ES6 spec.
 var MIN_INTEGER = Number.MIN_SAFE_INTEGER || -9007199254740991;
@@ -72960,7 +72960,7 @@ webpackContext.id = 279;
 
 var defaults = __webpack_require__(8);
 var elements = __webpack_require__(20);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 defaults._set('bar', {
 	hover: {
@@ -73471,7 +73471,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(8);
 var elements = __webpack_require__(20);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 defaults._set('bubble', {
 	hover: {
@@ -73658,7 +73658,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(8);
 var elements = __webpack_require__(20);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 defaults._set('doughnut', {
 	animation: {
@@ -73964,7 +73964,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(8);
 var elements = __webpack_require__(20);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 defaults._set('line', {
 	showLines: true,
@@ -74304,7 +74304,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(8);
 var elements = __webpack_require__(20);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 defaults._set('polarArea', {
 	scale: {
@@ -74533,7 +74533,7 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(8);
 var elements = __webpack_require__(20);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 defaults._set('radar', {
 	scale: {
@@ -74898,7 +74898,7 @@ module.exports.title = __webpack_require__(297);
 
 var defaults = __webpack_require__(8);
 var elements = __webpack_require__(20);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 
 defaults._set('global', {
 	plugins: {
@@ -75217,7 +75217,7 @@ module.exports = {
 
 var defaults = __webpack_require__(8);
 var Element = __webpack_require__(15);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 var layouts = __webpack_require__(33);
 
 var noop = helpers.noop;
@@ -75800,7 +75800,7 @@ module.exports = {
 
 var defaults = __webpack_require__(8);
 var Element = __webpack_require__(15);
-var helpers = __webpack_require__(5);
+var helpers = __webpack_require__(6);
 var layouts = __webpack_require__(33);
 
 var noop = helpers.noop;
@@ -76650,7 +76650,7 @@ var content = __webpack_require__(308);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(6)("48cac161", content, false, {});
+var update = __webpack_require__(5)("48cac161", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -76898,7 +76898,7 @@ var content = __webpack_require__(314);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(6)("e24af8bc", content, false, {});
+var update = __webpack_require__(5)("e24af8bc", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags

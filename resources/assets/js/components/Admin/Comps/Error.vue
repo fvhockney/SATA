@@ -1,5 +1,5 @@
 <template>
-    <b-alert :show='errorPresent' dismissible variant="danger" class="overlay-error">
+    <b-alert :show='errorPresent' dismissible variant="danger" class="overlay-error" @dismissed="$emit('dismissed')">
         <h4 class="alert-heading">Error!</h4>
         <p>
             {{ error }}

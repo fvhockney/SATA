@@ -1,30 +1,49 @@
 <template>
     <div>
-        <h2>Hotel Information</h2>
         <template v-if="loaded">
-            <div>Name: {{ profile.service.name }}</div>
-            <div>
-                Address:<br>
-                {{ profile.service.contact.street }}<br>
-                {{ profile.service.contact.city }}, {{ profile.service.contact.zip }} {{ profile.service.contact.country }}
-            </div>
-            <div>Phone: {{ profile.service.contact.phone }}</div>
-            <div>Email: {{ profile.service.contact.email }}</div>
-        </template>
+            <h2>{{ type | capitalize}} Information</h2>
+            <div>Name: {{ profile[type].name }}</div>
 
-        <h2>Rooms</h2>
-        <template v-if="loaded">
-            <div v-for="room in profile.rooms">
-                {{ room.type }} - {{ room.price }}
+            <h2>Contacts</h2>
+            <div v-for="contact in profile.contacts" class="mb-2">
+                <div>
+                    {{ contact.name }}<br>
+                    Address:<br>
+                    {{ contact.street }}<br>
+                    {{ contact.city }}, {{ contact.zip }} {{ contact.country }}
+                </div>
+                <div>Phone: {{ contact.phone }}</div>
+                <div>Email: {{ contact.email }}</div>
             </div>
-        </template>
 
-        <h2>Restaurants</h2>
-        <template v-if="loaded">
+            <template v-if="type === 'hotel'">
+                <h2>Rooms</h2>
+                <div v-for="room in profile.rooms">
+                    {{ room.type }} - {{ room.price }}
+                </div>
+            </template>
+
+            <template v-if="type === 'hotel'">
+            <h2>Restaurants</h2>
             <div v-for="restaurant in profile.restaurant">
                 {{ restaurant.name }}
             </div>
+            </template>
+
+            <template v-if="type === 'restaurant'">
+                <h2>Dishes</h2>
+                <div v-for="dish in profile.dishes">
+                    {{ dish.type }} - {{ dish.price}}
+                </div>
+            </template>
+
+            <template v-if="type === 'transport'">
+                <div v-for="fare in fares">
+                    {{ fare.type }} - {{ fare.price }}
+                </div>
+            </template>
         </template>
+        <progress v-else></progress>
     </div>
 </template>
 
@@ -42,7 +61,8 @@
         created() {
             axios.get('/admin/' + this.type + '/' + this.id)
                 .then((response) => {
-                    this.profile = response.data
+                    console.log(response)
+                    this.profile = response.data.data
                     this.loaded = true
                 })
         }

@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Attraction;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\AttractionsCollection;
+use App\Http\Resources\ServiceCollection;
+use App\Http\Resources\ServiceProfile;
 use Illuminate\Http\Request;
 
 class AttractionController extends Controller
@@ -16,8 +17,8 @@ class AttractionController extends Controller
      */
     public function index()
     {
-        AttractionsCollection::withoutWrapping();
-        return new AttractionsCollection(Attraction::all());
+        ServiceCollection::withoutWrapping();
+        return new ServiceCollection(Attraction::all());
     }
 
     /**
@@ -38,7 +39,43 @@ class AttractionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attraction = $request->only([
+            'name',
+            'type',
+        ]);
+        $contacts = $request->contacts;
+        $notes = $request->notes;
+
+        array_map(array($this,'RemoveLocalIds',), $contacts);
+        array_map(array($this,'RemoveLocalIds',), $notes);
+
+        if ( ! Attraction::where('name', '=', $attraction[ 'name' ])->exists() ) {
+            $attraction = Hotel::Create($attraction);
+        } else {
+            return response()->json([ 'error' => 'This Attraction Already Exists' ]);
+        }
+
+        if ( $request->filled('contacts') ) {
+            foreach ( $contacts as $contact ) {
+                $contact = collect($contact)->except([
+                    'notes',
+                ])->all();
+                if ( $contact['id'] === null ) {
+                    $contact = Contact::create($contact);
+                }
+
+                $attraction->contact()->attach($contact[ 'id' ]);
+            }
+        }
+
+        if ( $request->filled('notes') ) {
+            null;
+             $attraction->note()->createMany($notes);
+        }
+
+        if ( request()->wantsJson() ) {
+            return new ServiceProfile($attraction);
+        }
     }
 
     /**
@@ -49,7 +86,9 @@ class AttractionController extends Controller
      */
     public function show(Attraction $attraction)
     {
-        //
+        ServiceProfile::withoutWrapping();
+
+        return response(new ServiceProfile($attraction));
     }
 
     /**

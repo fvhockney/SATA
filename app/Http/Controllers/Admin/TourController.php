@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\TourCollection;
+use App\Http\Resources\ServiceCollection;
+use App\Http\Resources\ServiceProfile;
 use App\Tour;
 use Illuminate\Http\Request;
 
@@ -16,8 +17,8 @@ class TourController extends Controller
      */
     public function index()
     {
-        TourCollection::withoutWrapping();
-        return new TourCollection(Tour::all());
+        ServiceCollection::withoutWrapping();
+        return new ServiceCollection(Tour::all());
     }
 
     /**
@@ -38,7 +39,43 @@ class TourController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tour = $request->only([
+            'name',
+            'type',
+        ]);
+        $contacts = $request->contacts;
+        $notes = $request->notes;
+
+        array_map(array($this,'RemoveLocalIds',), $contacts);
+        array_map(array($this,'RemoveLocalIds',), $notes);
+
+        if ( ! Tour::where('name', '=', $tour[ 'name' ])->exists() ) {
+            $tour = Tour::Create($tour);
+        } else {
+            return response()->json([ 'error' => 'This Tour Already Exists' ]);
+        }
+
+        if ( $request->filled('contacts') ) {
+            foreach ( $contacts as $contact ) {
+                $contact = collect($contact)->except([
+                    'notes',
+                ])->all();
+                if ( null === $contact['id'] ) {
+                    $contact = Contact::create($contact);
+                }
+
+                $tour->contact()->attach($contact[ 'id' ]);
+            }
+        }
+
+        if ( $request->filled('notes') ) {
+            null;
+             $tour->note()->createMany($notes);
+        }
+
+        if ( request()->wantsJson() ) {
+            return new ServiceProfile($tour);
+        }
     }
 
     /**
@@ -49,7 +86,9 @@ class TourController extends Controller
      */
     public function show(Tour $tour)
     {
-        //
+        ServiceProfile::withoutWrapping();
+
+        return response(new ServiceProfile($tour));
     }
 
     /**

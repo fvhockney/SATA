@@ -59,31 +59,31 @@ const actions = {
     getAllHotels({commit, state}) {
         return axios.get(state.hotelBaseLink)
             .then((response) => {
-                commit('setService', {response, service: 'hotels'})
+                commit('setService', {response, type: 'hotels'})
             })
     },
     getAllRestaurants({commit, state}) {
         return axios.get(state.restaurantBaseLink)
             .then((response) => {
-                commit('setService', {response, service: 'restaurants'})
+                commit('setService', {response, type: 'restaurants'})
             })
     },
     getAllTours({commit, state}) {
         return axios.get(state.toursBaseLink)
             .then((response) => {
-                commit('setService', {response, service: 'tours'})
+                commit('setService', {response, type: 'tours'})
             })
     },
     getAllTransports({commit, state}) {
         return axios.get(state.transportBaseLink)
             .then((response) => {
-                commit('setService', {response, service: 'transports'})
+                commit('setService', {response, type: 'transports'})
             })
     },
     getAllAttractions({commit, state}) {
         return axios.get(state.attractionBaseLink)
             .then((response) => {
-                commit('setService', {response, service: 'attractions'})
+                commit('setService', {response, type: 'attractions'})
             })
     },
     sendService({commit, state}, contacts) {
@@ -95,6 +95,7 @@ const actions = {
                 if (response.statusText === "Created") {
                     commit('setProofService', response.data.data)
                     commit('Contacts/resetNewContacts', null, { root: true })
+                    commit('resetService')
                 } else {
                     commit('setError', response.data.error)
                 }
@@ -105,7 +106,7 @@ const actions = {
 // mutations
 const mutations = {
     setService(state, payload) {
-        state[payload.service] = payload.response['data'][payload.service]
+        state[payload.type] = payload.response.data.data.service
     },
     makeAll(state) {
         state.all = _.groupBy(_.concat(state.all, state.hotels, state.restaurants, state.tours, state.transports, state.attractions), (b) => {
@@ -144,6 +145,10 @@ const mutations = {
     resetProofService(state) {
         state.proofService = {}
         state.created = false
+    },
+    clearError(state){
+        state.error = ''
+        state.errorPresent = false
     }
 };
 

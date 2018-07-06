@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class RestaurantCollection extends ResourceCollection
+class ServiceCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -15,8 +15,11 @@ class RestaurantCollection extends ResourceCollection
      */
     public function toArray( $request )
     {
-        return [
-            'restaurants' => $this->collection,
-        ];
+        return
+            [
+                'data' => [
+                    'service' => $this->collection
+                ]
+            ];
     }
 }

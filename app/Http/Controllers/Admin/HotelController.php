@@ -5,11 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Contact;
 use App\Hotel;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\HotelCollection;
-use App\Http\Resources\Hotel as HotelResource;
-use App\Http\Resources\HotelProfile;
-use App\Room;
-use function Clue\StreamFilter\fun;
+use App\Http\Resources\ServiceCollection;
+use App\Http\Resources\ServiceProfile;
 use Illuminate\Http\Request;
 
 class HotelController extends Controller
@@ -17,13 +14,12 @@ class HotelController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return HotelCollection
+     * @return ServiceCollection
      */
     public function index()
     {
-        HotelCollection::withoutWrapping();
-
-        return new HotelCollection(Hotel::all());
+        ServiceCollection::withoutWrapping();
+        return new ServiceCollection(Hotel::all());
     }
 
     /**
@@ -45,17 +41,22 @@ class HotelController extends Controller
      */
     public function store( Request $request )
     {
-        $hotel = $request->only(['name', 'type']);
+        $hotel = $request->only([
+            'name',
+            'type',
+        ]);
         $rooms = $request->rooms;
         $contacts = $request->contacts;
+        $notes = $request->notes;
 
-        array_map(array($this, 'RemoveLocalIds'),$rooms);
-        array_map(array($this, 'RemoveLocalIds'), $contacts);
+        array_map(array($this,'RemoveLocalIds',), $rooms);
+        array_map(array($this,'RemoveLocalIds',), $contacts);
+        array_map(array($this,'RemoveLocalIds',), $notes);
 
-        if (! Hotel::where('name', '=', $hotel['name'])->exists()){
+        if ( ! Hotel::where('name', '=', $hotel[ 'name' ])->exists() ) {
             $hotel = Hotel::Create($hotel);
         } else {
-            return response()->json(['error' => 'This Hotel Already Exists']);
+            return response()->json([ 'error' => 'This Hotel Already Exists' ]);
         }
 
         if ( $request->filled('contacts') ) {
@@ -63,11 +64,11 @@ class HotelController extends Controller
                 $contact = collect($contact)->except([
                     'notes',
                 ])->all();
-                if (! array_key_exists('id', $contact)){
+                if ( $contact['id'] === null ) {
                     $contact = Contact::create($contact);
                 }
 
-                $hotel->contact()->attach($contact['id']);
+                $hotel->contact()->attach($contact[ 'id' ]);
             }
         }
 
@@ -77,8 +78,11 @@ class HotelController extends Controller
             }
         }
 
+        if ( $request->filled('notes') ) {
+             $hotel->note()->createMany($notes);
+        }
         if ( request()->wantsJson() ) {
-            return new HotelProfile($hotel);
+            return new ServiceProfile($hotel);
         }
 
     }
@@ -92,9 +96,9 @@ class HotelController extends Controller
      */
     public function show( Hotel $hotel )
     {
-        HotelProfile::withoutWrapping();
+        ServiceProfile::withoutWrapping();
 
-        return response(new HotelProfile($hotel));
+        return response(new ServiceProfile($hotel));
     }
 
     /**

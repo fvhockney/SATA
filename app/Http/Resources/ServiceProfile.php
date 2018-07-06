@@ -20,6 +20,7 @@ class ServiceProfile extends JsonResource
     {
         return [
             'data' => [
+                'type' => $this->type,
                 $this->type      => [
                     'name'    => $this->name,
                     'id'      => $this->id,

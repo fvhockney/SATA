@@ -64,7 +64,7 @@
                     this.profile = response.data.data
                     this.loaded = true
                 })
-        }i
+        }
     }
 </script>
 

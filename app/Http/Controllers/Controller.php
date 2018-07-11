@@ -10,9 +10,4 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-    static public function RemoveLocalIds( array $array )
-    {
-        unset($array[ 'localId' ]);
-    }
 }

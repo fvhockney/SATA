@@ -70,17 +70,25 @@ class DishController extends Controller
      */
     public function update(Request $request, Dish $dish)
     {
-        //
+            Dish::findOrFail($dish->id)->update($request->item);
+            if ($request->wantsJson()){
+                return response()->json($request->item);
+            }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Dish  $dish
+     * @param  \App\Dish $dish
+     * @param Request    $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dish $dish)
+    public function destroy(Dish $dish, Request $request)
     {
-        //
+        Dish::findOrFail($dish->id)->delete();
+        if ($request->wantsJson()){
+            return response()->json(["deleted dish"]);
+        }
     }
 }

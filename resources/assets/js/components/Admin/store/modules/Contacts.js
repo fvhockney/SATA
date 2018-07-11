@@ -20,6 +20,16 @@ const actions = {
             .then(response => {
                 commit('initAddressbook', response.data.data.addressbook)
             })
+    },
+    updateContact({commit, state},contact) {
+        return axios.put(contact.updateLink, contact)
+    },
+    addContact({commit, state}, payload){
+        return axios.put(payload.updateLink, {'action': 'add contact', 'contact':payload.contact})
+    },
+    removeContact({commit, state}, payload){
+        return axios.put(payload.updateLink, {'action':'remove contact', 'contact':payload.contact})
+
     }
 };
 

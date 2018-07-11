@@ -46,31 +46,15 @@ class HotelController extends Controller
             'type',
         ]);
         $rooms = $request->rooms;
-        $contacts = $request->contacts;
         $notes = $request->notes;
 
-        array_map(array($this,'RemoveLocalIds',), $rooms);
-        array_map(array($this,'RemoveLocalIds',), $contacts);
-        array_map(array($this,'RemoveLocalIds',), $notes);
-
         if ( ! Hotel::where('name', '=', $hotel[ 'name' ])->exists() ) {
-            $hotel = Hotel::Create($hotel);
+            $hotel = Hotel::create($hotel);
         } else {
             return response()->json([ 'error' => 'This Hotel Already Exists' ]);
         }
 
-        if ( $request->filled('contacts') ) {
-            foreach ( $contacts as $contact ) {
-                $contact = collect($contact)->except([
-                    'notes',
-                ])->all();
-                if ( $contact['id'] === null ) {
-                    $contact = Contact::create($contact);
-                }
-
-                $hotel->contact()->attach($contact[ 'id' ]);
-            }
-        }
+        $hotel->addContactsToNewService($request);
 
         if ( $request->filled('rooms') ) {
             foreach ( $rooms as $room ) {
@@ -123,7 +107,15 @@ class HotelController extends Controller
      */
     public function update( Request $request, Hotel $hotel )
     {
-        //
+        $hotel->associateOrDissasociateContact($request);
+
+        $request->action === 'add room' ?
+            $hotel->room()->create($request->item):
+            null;
+
+        if ($request->wantsJson()){
+            return response()->json($hotel->contact);
+        }
     }
 
     /**

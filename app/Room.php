@@ -11,4 +11,12 @@ class Room extends Hotel
     public function hotel() {
         return $this->belongsTo(Hotel::class);
     }
+
+    public function getDeleteLinkAttribute() {
+        return action('Admin\RoomController@destroy', ['room' => $this]);
+    }
+
+    public function getUpdateLinkAttribute() {
+        return action('Admin\RoomController@update', ['room' => $this]);
+    }
 }

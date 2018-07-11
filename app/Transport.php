@@ -14,4 +14,12 @@ class Transport extends Model
     public function fare() {
         return $this->hasMany(Fare::class);
     }
+
+    public function getDeleteLinkAttribute(){
+        return action('Admin\TransportController@destroy', ['transport' => $this]);
+    }
+
+    public function getUpdateLinkAttribute() {
+        return action('Admin\TransportController@update', ['transport' => $this]);
+    }
 }

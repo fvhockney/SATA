@@ -1,6 +1,6 @@
 <template>
-    <b-modal :id="id" lazy title="Contact" @ok="saveContact" ok-title="Add/Update" cancel-title="Save & Exit">
-        <b-form-group label="Search for Existing" label-for="existingSearch">
+    <b-modal :id="id" lazy title="Contact" @ok="saveContact" ok-title="Add/Update" cancel-title="Exit">
+        <b-form-group v-if="!editingExisting" label="Search for Existing" label-for="existingSearch">
             <b-form-input id="existingSearch" type="text" v-model="searchTerm"></b-form-input>
             <ul v-show="visible">
                 <li v-for="(result, key) in results" :key="key" @click="selectContact(result)">{{ result.name }}</li>
@@ -28,7 +28,7 @@
             <b-form-input id="emailInput" type="email" v-model="contact.email"></b-form-input>
         </b-form-group>
         <b-form-group label="Note" label-for="contactNote">
-            <b-form-textarea id="contactNote" v-model="contact.note"></b-form-textarea>
+            <b-form-textarea disabled id="contactNote" v-model="contact.note" placeholder="Future Release Feature"></b-form-textarea>
         </b-form-group>
     </b-modal>
 </template>
@@ -42,7 +42,10 @@
         name: "AddContact",
         props: {
             passContact: {required: false},
-            id: String
+            id: String,
+            editingExisting: {required: false, default: false, type:Boolean},
+            addToExisting: {required:false, default:false, type:Boolean},
+            updateLink: {required:false, type:String},
         },
         data() {
             return {
@@ -86,19 +89,27 @@
         },
         methods: {
             saveContact() {
-                this.$store.commit('Contacts/saveContact', this.contact)
-                Object.assign(this.$data, this.$options.data())
+                if (this.editingExisting) {
+                    this.$store.dispatch('Contacts/updateContact', this.contact)
+                        .then(response => {
+                            Object.assign(this.$data, this.$options.data())
+                        })
+                } else if (this.addToExisting) {
+                    this.$store.dispatch('Contacts/addContact', {'contact':this.contact,'updateLink': this.updateLink, 'action': 'add contact'})
+                        .then(response => {
+                            console.log(response)
+                        })
+                } else {
+                    this.$store.commit('Contacts/saveContact', this.contact)
+                    Object.assign(this.$data, this.$options.data())
+                }
             },
             selectContact(contact) {
                 this.searchTerm = '';
                 let foundContact = _.filter(this.addressbook, c => {
                     return c.id === contact.id
                 })[0]
-                _.each(this.contact, (v, k) => {
-                    if (_.has(foundContact, k)) {
-                        _.set(this.contact, k, foundContact[k])
-                    }
-                })
+                this.contact = foundContact
             }
         }
     }

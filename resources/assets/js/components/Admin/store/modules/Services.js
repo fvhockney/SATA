@@ -28,9 +28,7 @@ const state = {
     types: ['hotel', 'restaurant', 'tour', 'transport', 'attraction'],
     proofService: {},
     sendingStatus: false,
-    errorPresent: false,
     created: false,
-    error: '',
     service: {
         name: '',
         type: null,
@@ -89,68 +87,72 @@ const actions = {
     sendService({commit, state}, contacts) {
         state.service.contacts = contacts
         state.sendingStatus = true
-        return axios.post('/admin/' + state.service.type, state.service)
+        return axios.post(`/admin/${state.service.type}`, state.service)
             .then(response => {
                 state.sendingStatus = false
                 if (response.statusText === "Created") {
                     commit('setProofService', response.data.data)
-                    commit('Contacts/resetNewContacts', null, { root: true })
+                    commit('Contacts/resetNewContacts', null, {root: true})
                     commit('resetService')
                 } else {
-                    commit('setError', response.data.error)
+                    commit('Error/setError', response.data.error, {root: true})
                 }
             })
+    },
+    updateAddOn({commit, state}, service) {
+        return axios.put(`/admin/${service.type}/${service.service.id}`, service.service)
+    },
+    removeAssociation({commit, state}, payload) {
+            return axios.delete(payload.item.deleteLink, {'item':payload.item})
+    },
+    updateExistingAddon({commit, state}, payload){
+        return axios.put(payload.item.updateLink, {'item': payload.item})
+    },
+    addAddon({commit, state}, payload){
+        return axios.put(payload.updateLink, {'item':payload.item, 'action': payload.action})
     },
 };
 
 // mutations
-const mutations = {
-    setService(state, payload) {
-        state[payload.type] = payload.response.data.data.service
-    },
-    makeAll(state) {
-        state.all = _.groupBy(_.concat(state.all, state.hotels, state.restaurants, state.tours, state.transports, state.attractions), (b) => {
-            return b.type;
-        })
-        state.loadStatus = 'loaded'
-    },
-    setServiceName(state, payload) {
-        state.service.name = payload
-    },
-    setServiceType(state, payload) {
-        state.service.type = payload
-    },
-    saveAddOn(state, payload) {
-        let existing = _.filter(state.service[payload[0]], c => {
-            return c.localId === payload[1].localId
-        })[0]
-        typeof existing !== "undefined" ?
-            existing = payload[1] :
-            state.service[payload[0]].push(payload[1]);
-    },
-    removeServiceAddOn(state, payload) {
-        state.service[payload[0]].splice(_.indexOf(state.service[payload[1]]), 1)
-    },
-    setProofService(state, payload) {
-        state.created = true
-        state.proofService = payload
-    },
-    resetService(state) {
-        Object.assign(state.service, emptyService())
-    },
-    setError(state, payload) {
-        state.errorPresent = true
-        state.error = payload
-    },
-    resetProofService(state) {
-        state.proofService = {}
-        state.created = false
-    },
-    clearError(state){
-        state.error = ''
-        state.errorPresent = false
-    }
-};
+    const mutations = {
+        setService(state, payload) {
+            state[payload.type] = payload.response.data.data.service
+        },
+        makeAll(state) {
+            state.all = _.groupBy(_.concat(state.all, state.hotels, state.restaurants, state.tours, state.transports, state.attractions), (b) => {
+                return b.type;
+            })
+            state.loadStatus = 'loaded'
+        },
+        setServiceName(state, payload) {
+            state.service.name = payload
+        },
+        setServiceType(state, payload) {
+            state.service.type = payload
+        },
+        saveAddOn(state, payload) {
+            let existing = _.filter(state.service[payload[0]], c => {
+                return c.localId === payload[1].localId
+            })[0]
+            typeof existing !== "undefined" ?
+                existing = payload[1] :
+                state.service[payload[0]].push(payload[1]);
+        },
+        removeServiceAddOn(state, payload) {
+            state.service[payload[0]].splice(_.indexOf(state.service[payload[1]]), 1)
+        },
+        setProofService(state, payload) {
+            state.created = true
+            state.proofService = payload
+        },
+        resetService(state) {
+            Object.assign(state.service, emptyService())
+        },
+        resetProofService(state) {
+            state.proofService = {}
+            state.created = false
+        },
+    };
 
 export default {
     namespaced: true,

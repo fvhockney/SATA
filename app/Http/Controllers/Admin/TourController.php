@@ -43,11 +43,7 @@ class TourController extends Controller
             'name',
             'type',
         ]);
-        $contacts = $request->contacts;
         $notes = $request->notes;
-
-        array_map(array($this,'RemoveLocalIds',), $contacts);
-        array_map(array($this,'RemoveLocalIds',), $notes);
 
         if ( ! Tour::where('name', '=', $tour[ 'name' ])->exists() ) {
             $tour = Tour::Create($tour);
@@ -55,18 +51,8 @@ class TourController extends Controller
             return response()->json([ 'error' => 'This Tour Already Exists' ]);
         }
 
-        if ( $request->filled('contacts') ) {
-            foreach ( $contacts as $contact ) {
-                $contact = collect($contact)->except([
-                    'notes',
-                ])->all();
-                if ( null === $contact['id'] ) {
-                    $contact = Contact::create($contact);
-                }
+        $tour->addContactsToNewService($request);
 
-                $tour->contact()->attach($contact[ 'id' ]);
-            }
-        }
 
         if ( $request->filled('notes') ) {
             null;
@@ -111,7 +97,8 @@ class TourController extends Controller
      */
     public function update(Request $request, Tour $tour)
     {
-        //
+        $tour->associateOrDissasociateContact($request);
+
     }
 
     /**

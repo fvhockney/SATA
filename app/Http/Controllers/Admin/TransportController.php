@@ -44,12 +44,7 @@ class TransportController extends Controller
             'type',
         ]);
         $fares = $request->fares;
-        $contacts = $request->contacts;
         $notes = $request->notes;
-
-        array_map(array($this,'RemoveLocalIds',), $fares);
-        array_map(array($this,'RemoveLocalIds',), $contacts);
-        array_map(array($this,'RemoveLocalIds',), $notes);
 
         if ( ! Transport::where('name', '=', $transport[ 'name' ])->exists() ) {
             $transport = Transport::Create($transport);
@@ -57,19 +52,8 @@ class TransportController extends Controller
             return response()->json([ 'error' => 'This Transport Already Exists' ]);
         }
 
-        if ( $request->filled('contacts') ) {
-            foreach ( $contacts as $contact ) {
-                $contact = collect($contact)->except([
-                    'notes',
-                ])->all();
+        $transport->addContactsToNewService($request);
 
-                if ( null === $contact['id'] ) {
-                    $contact = Contact::create($contact);
-                }
-
-                $transport->contact()->attach($contact[ 'id' ]);
-            }
-        }
 
         if ( $request->filled('fares') ) {
             foreach ( $fares as $fare ) {
@@ -120,7 +104,10 @@ class TransportController extends Controller
      */
     public function update(Request $request, Transport $transport)
     {
-        //
+        $transport->associateOrDissasociateContact($request);
+        $request->action === 'add fare' ?
+            $transport->fare()->create($request->item):
+            null;
     }
 
     /**

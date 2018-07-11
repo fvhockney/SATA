@@ -47,7 +47,7 @@ class AddressbookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Contact $contact)
     {
         //
     }
@@ -58,7 +58,7 @@ class AddressbookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Contact $contact)
     {
         //
     }
@@ -70,9 +70,13 @@ class AddressbookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Contact $contact)
     {
-        //
+        Contact::findOrFail($contact->id)->update($request->input());
+        $contact = Contact::find($contact->id);
+        if ($request->wantsJson()){
+            return response()->json($contact);
+        }
     }
 
     /**
@@ -81,7 +85,7 @@ class AddressbookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Contact $contact)
     {
         //
     }

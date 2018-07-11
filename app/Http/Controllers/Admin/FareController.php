@@ -70,17 +70,25 @@ class FareController extends Controller
      */
     public function update(Request $request, Fare $fare)
     {
-        //
+        Fare::findOrFail($fare->id)->update($request->item);
+        if ($request->wantsJson()){
+            return response()->json($request->item);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Fare  $fare
+     * @param  \App\Fare $fare
+     * @param Request    $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Fare $fare)
+    public function destroy(Fare $fare, Request $request)
     {
-        //
+        Fare::findOrFail($fare->id)->delete();
+        if ($request->wantsJson()){
+            return response()->json(["deleted fare"]);
+        }
     }
 }

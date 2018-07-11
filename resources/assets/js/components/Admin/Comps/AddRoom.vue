@@ -10,13 +10,16 @@
 </template>
 
 <script>
-import uuid from 'uuid/v1';
+    import uuid from 'uuid/v1';
 
     export default {
         name: "AddRoom",
         props: {
-          id: String,
-          passRoom: {required: false}
+            id: String,
+            passRoom: {required: false},
+            editingExisting: {required: false, default: false, type: Boolean},
+            addToExisting: {required: false, default: false, type: Boolean},
+            updateLink: {required: false, type: String},
         },
         data() {
             return {
@@ -26,7 +29,7 @@ import uuid from 'uuid/v1';
                     type: null,
                 },
                 options:
-                    ['twin', 'double', 'luxury']
+                    ['twin', 'double', 'luxury', 'single']
             }
         },
         watch: {
@@ -36,8 +39,18 @@ import uuid from 'uuid/v1';
         },
         methods: {
             saveAddOn() {
-                this.$store.commit('Services/saveAddOn', ['rooms', this.room])
-                Object.assign(this.$data, this.$options.data())
+                if (this.editingExisting) {
+                    this.$store.dispatch('Services/updateExistingAddon', {'item': this.room})
+                } else if (this.addToExisting) {
+                    this.$store.dispatch('Services/addAddon', {
+                        'item': this.room,
+                        'updateLink': this.updateLink,
+                        'action': 'add room'
+                    })
+                } else {
+                    this.$store.commit('Services/saveAddOn', ['rooms', this.room])
+                    Object.assign(this.$data, this.$options.data())
+                }
             }
         }
     }

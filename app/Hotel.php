@@ -18,4 +18,12 @@ class Hotel extends Model
     public function room() {
         return $this->hasMany(Room::class);
     }
+
+    public function getDeleteLinkAttribute(){
+        return action('Admin\HotelController@destroy', ['hotel' => $this]);
+    }
+
+    public function getUpdateLinkAttribute() {
+        return action('Admin\HotelController@update', ['hotel' => $this]);
+    }
 }

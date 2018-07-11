@@ -1,7 +1,7 @@
 <template>
     <b-modal size="lg" no-cloe-on-backdrop no-close-on-esc ok-only lazy :visible="created" @hidden="$emit('hidden')">
         <h4 class="modal-header">Your Record Was Created!!!</h4>
-        <div>
+        <div v-if="created === true">
             <h2>{{ message.type | capitalize}} Information</h2>
             <div>Name: {{ message[message.type].name }}</div>
 

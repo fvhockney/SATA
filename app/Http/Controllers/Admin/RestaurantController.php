@@ -38,17 +38,14 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store( Request $request)
     {
         $restaurant = $request->only([
             'name',
             'type',
         ]);
         $dishes = $request->dishes;
-        $contacts = $request->contacts;
-
-        array_map(array($this, 'RemoveLocalIds'), $dishes);
-        array_map(array($this, 'RemoveLocalIds'), $contacts);
+        $notes = $request->notes;
 
         if (!Restaurant::where('name', '=', $restaurant['name'])->exists()) {
             $restaurant = Restaurant::Create($restaurant);
@@ -56,18 +53,8 @@ class RestaurantController extends Controller
             return response()->json(['error' => 'This Restaurant Already Exists']);
         }
 
-        if ($request->filled('contacts')) {
-            foreach ($contacts as $contact) {
-                $contact = collect($contact)->except([
-                    'notes',
-                ])->all();
-                if (null === $contact['id']) {
-                    $contact = Contact::create($contact);
-                }
+        $restaurant->addContactsToNewService($request);
 
-                $restaurant->contact()->attach($contact['id']);
-            }
-        }
 
         if ($request->filled('dishes')) {
             foreach ($dishes as $dish) {
@@ -76,7 +63,6 @@ class RestaurantController extends Controller
         }
 
         if ($request->filled('notes')) {
-            null;
              $restaurant->note()->createMany($notes);
         }
 
@@ -120,6 +106,11 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, Restaurant $restaurant)
     {
+        $restaurant->associateOrDissasociateContact($request);
+        $request->action === 'add dish' ?
+            $restaurant->dish()->create($request->item):
+            null;
+
     }
 
     /**

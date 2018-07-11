@@ -70,17 +70,25 @@ class RoomController extends Controller
      */
     public function update(Request $request, Room $room)
     {
-        //
+        Room::findOrFail($room->id)->update($request->item);
+        if ($request->wantsJson()){
+            return response()->json($request->item);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Room  $room
+     * @param  \App\Room $room
+     * @param Request    $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Room $room)
+    public function destroy(Room $room, Request $request)
     {
-        //
+        Room::findOrFail($room->id)->delete();
+        if ($request->wantsJson()){
+            return response()->json(["deleted room"]);
+        }
     }
 }

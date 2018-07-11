@@ -7,31 +7,36 @@
 </template>
 
 <script>
-import uuid from 'uuid/v1';
+    import uuid from 'uuid/v1';
 
     export default {
         name: "AddNote",
         props: {
-          id: String,
-          passNote: {required: false}
+            id: String,
+            passNote: {required: false},
+            editingExisting: {required: false, default: false, type: Boolean}
         },
         data() {
             return {
-                note:{
+                note: {
                     localId: uuid(),
                     body: ''
                 }
             }
         },
         watch: {
-          passNote: function () {
-              this.note = this.passNote
-          }
+            passNote: function () {
+                this.note = this.passNote
+            }
         },
         methods: {
             saveAddOn() {
-                this.$store.commit('Services/saveAddOn', ['notes',this.note])
-                Object.assign(this.$data, this.$options.data())
+                if (this.editingExisting) {
+                    this.$store.dispatch('Services/saveAddOn', {'type': 'note', 'service': this.note})
+                } else {
+                    this.$store.commit('Services/saveAddOn', ['notes', this.note])
+                    Object.assign(this.$data, this.$options.data())
+                }
             }
         }
     }

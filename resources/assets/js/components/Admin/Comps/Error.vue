@@ -1,5 +1,5 @@
 <template>
-    <b-alert :show='errorPresent' dismissible variant="danger" class="overlay-error" @dismissed="$emit('dismissed')">
+    <b-alert :show='errorPresent' dismissible variant="danger" class="overlay-error" @dismissed="clearError">
         <h4 class="alert-heading">Error!</h4>
         <p>
             {{ error }}
@@ -8,16 +8,20 @@
 </template>
 
 <script>
+    import {mapState, mapMutations} from 'vuex';
+
     export default {
         name: "Error",
-        props: {
-            error: {
-                required: true,
-            },
-            errorPresent: {
-                type: Boolean,
-                required: true,
-            }
+        computed:{
+            ...mapState('Error', {
+                errorPresent: 'errorPresent',
+                error: 'error'
+            })
+        },
+        methods: {
+            ...mapMutations('Error', [
+                'clearError'
+            ])
         }
     }
 </script>

@@ -14,4 +14,12 @@ class Attraction extends Model
         'type',
     ];
 
+    public function getDeleteLinkAttribute(){
+        return action('Admin\AttractionController@destroy', ['attraction' => $this]);
+    }
+
+    public function getUpdateLinkAttribute() {
+        return action('Admin\AttractionController@update', ['attraction' => $this]);
+    }
+
 }

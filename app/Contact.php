@@ -40,4 +40,12 @@ class Contact extends Model
     {
         return $this->morphedByMany(Transport::class, 'contactable');
     }
+
+    public function getDeleteLinkAttribute(){
+        return action('Admin\AddressbookController@destroy', ['contact' => $this]);
+    }
+
+    public function getUpdateLinkAttribute() {
+        return action('Admin\AddressbookController@update', ['contact' => $this]);
+    }
 }

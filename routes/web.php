@@ -27,6 +27,8 @@ Route::get('services', 'StaticController@services')->name('services');
 Route::get('info', 'StaticController@info')->name('info');
 Route::get('galleries', 'StaticController@galleries')->name('galleries');
 
+Route::get('sample-itinerary', 'StaticController@sample_itinerary')->name('sampleItinerary');
+
 // Blog Pages
 Route::get('blog', 'PostController@index')->name('blog');
 Route::get('blog/{post}', 'PostController@show')->name('blog-post');
@@ -60,6 +62,7 @@ Route::group(
       '/dish' => 'DishController',
       '/attraction' => 'AttractionController',
       '/contact' => 'AddressbookController',
+      '/customer' => 'CustomerController',
       ]);
     }
 );

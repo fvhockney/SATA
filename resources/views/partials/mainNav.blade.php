@@ -1,4 +1,4 @@
-<nav id="main-nav" class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+<nav id="main-nav" class="navbar fixed-top navbar-expand-lg navbar-light bg-light" {{ \Request::route()->getName()==='home'?"style=opacity:0;":null }}>
   <a class="navbar-brand" href="{{ route('home') }}"><img class="rounded-circle" height="45px" width="auto" src="/imgs/stork_logo_1.png" alt="Fernweh Logo"><img height="45px" width="auto" class="ml-2" src="/imgs/fernweh.png" alt="Fernweh Logo Text"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

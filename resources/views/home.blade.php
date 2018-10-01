@@ -19,9 +19,7 @@
 
     <div class="m-5 text-center">
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cum accusamus ut, assumenda quibusdam,
-            voluptate eligendi, officiis nam nesciunt hic commodi modi consequatur voluptatibus corporis quo odit
-            deserunt. Repellat, rerum.
+            Israel has fascinated mankind for thousands of years. It is home to sacred sites to Jews, Christians, Muslims, and the Bahai. Whatever your political inclinations or religious beliefs, Israel has something to offer everyone. You aren't a cookie cutter person, don't settle for a cookie cutter experience of this unbelievable land. Let Fernweh craft your perfect trip to explore the unique blend of ancient and modern Israel has to offer.
         </p>
     </div>
 
@@ -45,12 +43,11 @@
 
 
     <script type="text/javascript">
-    window.onload = function() {document.getElementById("main-nav").style.opacity= "0";}
     window.onscroll = function() {scrollFunction()};
 
     function scrollFunction() {
     if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
-    document.getElementById("main-nav").style.opacity = "1";
+    document.getElementById("main-nav").style.opacity = "0.90a";
     } else {
     document.getElementById("main-nav").style.opacity = "0";
     document.getElementById("main-nav").style.transition = "opacity 0.3s ease-out";

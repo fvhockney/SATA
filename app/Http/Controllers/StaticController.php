@@ -62,4 +62,9 @@ class StaticController extends Controller
     public function galleries(){
         return view('galleries');
     }
+
+    public function sample_itinerary()
+    {
+        return view('trips.itinerary');
+    }
 }

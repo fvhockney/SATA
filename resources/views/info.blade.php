@@ -16,15 +16,15 @@
   </p>
   <h6 class="mb-4 mt-5">What We Do</h6>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti eveniet ipsam iure laboriosam minus nostrum perspiciatis placeat possimus suscipit voluptas. Distinctio eligendi eos exercitationem id nostrum pariatur velit veniam veritatis.
+    Fernweh specializes in creating unique and memorable vacations to the land of Israel. Whether it is your first time visiting Israel or a seasoned veteran, we make every effort to ensure that your trip is unique, memorable, and perfectly suited to your taste and personal flare.
   </p>
   <h6 class="mb-4 mt-5">How We Do It</h6>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, architecto eaque esse incidunt libero molestias nisi perspiciatis possimus provident quidem recusandae repudiandae, veniam voluptate. Incidunt iusto pariatur ratione soluta voluptatem.
+    Guide books can get you started, but there is no replacement for first-hand knowledge. We have both lived and studied in Israel. Combined with our experience and contacts in Israel, we stay in constant contact with you througout the planning process to develope a vacation that you can say is truely your own. We don't just slap on the most famous places that we think you want to see, we take the time to get to know you, your likes, dislikes, and preferences in order to create a once in a lifetime experience to fit your budget.
   </p>
   <h6 class="mb-4 mt-5">Who We Are</h6>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aspernatur aut dicta eius id magnam maxime necessitatibus non odio pariatur, perferendis porro saepe sapiente tenetur velit. Assumenda, commodi, nesciunt. Non!
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut quasi quos incidunt assumenda, repellendus quisquam delectus aperiam adipisci ut hic. Deleniti, molestiae, debitis deserunt laudantium magnam voluptate labore ipsa magni.
   </p>
   </div>
 
